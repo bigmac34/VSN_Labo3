@@ -1,0 +1,31 @@
+git init // initialiser le dossier en tant que git
+
+
+git add . // Ajouter tout les fichier du dossier courant
+
+
+git commit -a -m "Ajouté itinéraire dans checklist-vacances.md" // Ajouter et mettre à jour
+
+
+//git commit -m "Mettre à jour"
+
+git commit -a -m "Deuxieme sauvegarde"	// Plutôt ça pour mettre a jour
+
+
+
+git log	// pour voir les commit
+ 
+
+git remote add origin https://github.com/bigmac34/LPSC_Labo.git // Push dawn gitHub au début
+
+
+git push -u origin master // Ajouter au GitHub la première fois 
+
+git push origin master	// Mettre a jour sur GitHub
+
+
+git branch macchi
+git checkout nom_de_ma_branch	// Travailler sur une branche
+git pull origin master		// Mettre a jour la branch avant de travailler 
+git push origin --delete nom_de_ma_branch_distante // Supprimer la branche sur le dossier distant
+git branch -d Macchi 	// suppression en local
