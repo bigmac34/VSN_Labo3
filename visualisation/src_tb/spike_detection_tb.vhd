@@ -1,18 +1,18 @@
--------------------------------------------------------------------------------
+------------test-------------------------------------------------------------------
 -- Title      : Testbench for design "spike_detection"
--- Project    : 
+-- Project    :
 -------------------------------------------------------------------------------
 -- File       : spike_detection_tb.vhd
 -- Author     : mike  <mike@a13pc02>
--- Company    : 
+-- Company    :
 -- Created    : 2018-03-21
 -- Last update: 2018-03-21
--- Platform   : 
+-- Platform   :
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
--- Description: 
+-- Description:
 -------------------------------------------------------------------------------
--- Copyright (c) 2018 
+-- Copyright (c) 2018
 -------------------------------------------------------------------------------
 -- Revisions  :
 -- Date        Version  Author  Description
@@ -42,7 +42,7 @@ architecture test_bench of spike_detection_tb is
     -- Constants --
     ---------------
     constant CLOCK_PERIOD        : time    := 10 ns;  -- 100MHz
-    constant SAMPLING_PERIOD     : time    := 33 us;  -- ~30kHz   
+    constant SAMPLING_PERIOD     : time    := 33 us;  -- ~30kHz
     constant SPIKES_EXPECTED     : integer := 4;
     constant MAX_SIMULATION_TIME : time    := 500 ms;
 
@@ -134,7 +134,7 @@ begin  -- architecture test_bench
             -- Extract value
             read(input_line_v, value_v);
 
-            -- put value as sample (synchronized with clk)            
+            -- put value as sample (synchronized with clk)
             wait until rising_edge(clk_sti);
             sample_sti       <= std_logic_vector(to_signed(value_v, sample_sti'length));
             sample_valid_sti <= '1';
