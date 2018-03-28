@@ -1,4 +1,26 @@
-
+-------------------------------------------------------------------------------
+-- HES-SO Master
+-- Haute Ecole Specialisee de Suisse Occidentale
+-------------------------------------------------------------------------------
+-- Cours VSN
+--------------------------------------------------------------------------------
+--
+-- File		: scoreboard_pkg.vhd
+-- Authors	: Jérémie Macchi
+--			  Vivien Kaltenrieder
+-- Date     : 28.03.2018
+--
+--------------------------------------------------------------------------------
+-- Description : Scoreboard pour la vérification des transactions de sortie
+--
+--------------------------------------------------------------------------------
+-- Modifications :
+-- Ver   Date        	Person     		Comments
+-- 1.0	 28.03.2018		Jérémie Macchi	Mise en place
+--------------------------------------------------------------------------------
+----------------
+-- Librairies --
+----------------
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -11,19 +33,26 @@ use work.output_transaction_fifo_pkg.all;
 use work.transactions_pkg.all;
 use work.spike_detection_pkg.all;
 
+---------------
+--  Package  --
+---------------
 package scoreboard_pkg is
 
+	-- Scoreboard
     procedure scoreboard(variable fifo_input  : inout work.input_transaction_fifo_pkg.tlm_fifo_type;
                          variable fifo_output : inout work.output_transaction_fifo_pkg.tlm_fifo_type
     );
 
-
 end package;
 
-
+--------------------
+--  Package body  --
+--------------------
 package body scoreboard_pkg is
 
-
+	------------------
+	--  Scoreboard  --
+	------------------
     procedure scoreboard(variable fifo_input  : inout work.input_transaction_fifo_pkg.tlm_fifo_type;
                          variable fifo_output : inout work.output_transaction_fifo_pkg.tlm_fifo_type
     ) is
@@ -31,6 +60,7 @@ package body scoreboard_pkg is
         variable trans_output : output_transaction_t;
         variable counter      : integer;
         variable expected     : std_logic_vector(7 downto 0);
+		
     begin
 
         raise_objection;

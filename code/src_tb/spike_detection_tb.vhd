@@ -1,32 +1,35 @@
---------------------------------------------------------------------------------
--- HEIG-VD
--- Haute Ecole d'Ingenerie et de Gestion du Canton de Vaud
--- School of Business and Engineering in Canton de Vaud
---------------------------------------------------------------------------------
--- REDS Institute
--- Reconfigurable Embedded Digital Systems
+-------------------------------------------------------------------------------
+-- HES-SO Master
+-- Haute Ecole Specialisee de Suisse Occidentale
+-------------------------------------------------------------------------------
+-- Cours VSN
 --------------------------------------------------------------------------------
 --
--- File     : my_design_tb.vhd
--- Author   : TbGenerator
--- Date     : 16.03.2018
+-- File		: spike_detected_tb.vhd
+-- Authors	: Jérémie Macchi
+--			  Vivien Kaltenrieder
+-- Date     : 28.03.2018
 --
 -- Context  :
 --
 --------------------------------------------------------------------------------
--- Description : This module is a simple VHDL testbench.
---               It instanciates the DUV and proposes a TESTCASE generic to
---               select which test to start.
+-- Description : Testbench pour le labo 3 de VSN spikeonchip
 --
 --------------------------------------------------------------------------------
--- Dependencies : -
+-- Dependencies : agent0_pkg.vhd
+--			      agent1_pkg.vhd
+--				  scoreboard_pkg.vhd
+--				  transaction_fifo_pkg.vhd
+--				  transaction_pkg.vhd
 --
 --------------------------------------------------------------------------------
 -- Modifications :
--- Ver   Date        Person     Comments
--- 0.1   16.03.2018  TbGen      Initial version
+-- Ver   Date        	Person     		Comments
+-- 1.0	 28.03.2018		Jérémie Macchi	Mise en place
 --------------------------------------------------------------------------------
-
+------------------
+--  Librairies  --
+------------------
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -42,6 +45,9 @@ use work.output_transaction_fifo_pkg.all;
 use work.agent0_pkg.all;
 use work.scoreboard_pkg.all;
 
+-------------------------------
+--  Déclaration de l'entité  --
+-------------------------------
 entity spike_detection_tb is
     generic (
         TESTCASE : integer := 0
@@ -49,16 +55,28 @@ entity spike_detection_tb is
 
 end spike_detection_tb;
 
+--------------------
+--	Architecture  --
+--------------------
 architecture testbench of spike_detection_tb is
 
+	------------------
+	--  Constantes  --
+	------------------
     constant CLK_PERIOD : time := 10 ns;
 
+	---------------
+	--  Signaux  --
+	---------------
     signal clk_sti          : std_logic;
     signal rst_sti          : std_logic;
     signal port0_input_sti  : port0_input_t;
     signal port0_output_obs : port0_output_t;
     signal port1_output_obs : port1_output_t;
 
+	-----------------
+	--  Composant  --
+	-----------------
     component spike_detection is
         port (
             -- standard inputs
@@ -75,20 +93,31 @@ architecture testbench of spike_detection_tb is
             );
     end component;
 
+	------------------------
+	--  shared variables  --
+	------------------------
     shared variable fifo_seq0_to_driver0 : work.input_transaction_fifo1_pkg.tlm_fifo_type;
     shared variable fifo_mon0_to_score : work.input_transaction_fifo_pkg.tlm_fifo_type;
 
     shared variable fifo_mon1_to_score : work.output_transaction_fifo_pkg.tlm_fifo_type;
 
 
+	-----------
+	--  Rep  --
+	-----------
   	procedure rep(finish_status: finish_status_t) is
   	begin
   		report "I finished, yippee";
   	end rep;
 
+-------------
+--  Begin  --
+-------------
 begin
 
-
+	-----------------------------------
+	--  Monitor: simulation_monitor  --
+	-----------------------------------
 	monitor: simulation_monitor
 	generic map (drain_time => 50 ns,
                  beat_time => 400 ns,
@@ -122,6 +151,9 @@ begin
     scoreboard : work.scoreboard_pkg.scoreboard(fifo_mon0_to_score,
                                                 fifo_mon1_to_score);
 
+	----------------------------
+	--  DUV: spike_detection  --
+	----------------------------
     duv : spike_detection
         port map (
             clk_i                  => clk_sti,
