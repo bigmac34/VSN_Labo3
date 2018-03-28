@@ -1,4 +1,4 @@
-git init // initialiser le dossier en tant que git
+﻿git init // initialiser le dossier en tant que git
 
 
 git add . // Ajouter tout les fichier du dossier courant
@@ -19,7 +19,7 @@ git log	// pour voir les commit
 git remote add origin https://github.com/bigmac34/LPSC_Labo.git // Push dawn gitHub au début
 
 
-git push -u origin master // Ajouter au GitHub la première fois 
+git push -u origin master // Ajouter au GitHub lajere première fois 
 
 git push origin master	// Mettre a jour sur GitHub
 
@@ -27,5 +27,11 @@ git push origin master	// Mettre a jour sur GitHub
 git branch macchi
 git checkout nom_de_ma_branch	// Travailler sur une branche
 git pull origin master		// Mettre a jour la branch avant de travailler 
+git checkout master		// Revenir sur le master
+git pull origin master		// Mettre a jour le master
+git checkout macchi		// Revenir sur la branch macchi
+git merge master		// Regarder si c'est a jour avec le master
+git push origin macchi		// Mettre a jour sur GitHub la branch macchi
+
 git push origin --delete nom_de_ma_branch_distante // Supprimer la branche sur le dossier distant
 git branch -d Macchi 	// suppression en local
