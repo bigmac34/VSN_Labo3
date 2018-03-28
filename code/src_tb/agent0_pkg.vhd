@@ -1,4 +1,31 @@
-
+-------------------------------------------------------------------------------
+-- HES-SO Master
+-- Haute Ecole Specialisee de Suisse Occidentale
+-------------------------------------------------------------------------------
+-- Cours VSN
+--------------------------------------------------------------------------------
+--
+-- File		: agent0_pkg.vhd
+-- Authors	: Jérémie Macchi
+--			  Vivien Kaltenrieder
+-- Date     : 28.03.2018
+--
+-- Context  :
+--
+--------------------------------------------------------------------------------
+-- Description : 1. Séquenceur générant des transactions.
+--				 2. Driver capable de jouer les transactions.
+--				 3. Moniteur d'entrée permettant de récupérer les transactions
+--				 jouées pour les envoyer au scoreboard.
+--
+--------------------------------------------------------------------------------
+-- Modifications :
+-- Ver   Date        	Person     		Comments
+-- 1.0	 28.03.2018		Jérémie Macchi	Mise en place
+--------------------------------------------------------------------------------
+----------------
+-- Librairies --
+----------------
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -12,11 +39,16 @@ use work.output_transaction_fifo_pkg.all;
 use work.transactions_pkg.all;
 use work.spike_detection_pkg.all;
 
+---------------
+--  Package  --
+---------------
 package agent0_pkg is
 
+	-- Sequencer
     procedure sequencer(variable fifo : inout work.input_transaction_fifo1_pkg.tlm_fifo_type;
                         constant testcase : in integer);
 
+	-- Driver
     procedure driver(variable fifo : inout work.input_transaction_fifo1_pkg.tlm_fifo_type;
         signal clk : in std_logic;
         signal rst : in std_logic;
@@ -24,7 +56,7 @@ package agent0_pkg is
         signal port_output : in port0_output_t
     );
 
-
+	-- Monitor
     procedure monitor(variable fifo : inout work.input_transaction_fifo_pkg.tlm_fifo_type;
         signal clk : in std_logic;
         signal rst : in std_logic;
@@ -34,9 +66,14 @@ package agent0_pkg is
 
 end package;
 
-
+--------------------
+--  Package body  --
+--------------------
 package body agent0_pkg is
 
+	-----------------
+	--  Sequencer  --
+	-----------------
     procedure sequencer(variable fifo : inout work.input_transaction_fifo1_pkg.tlm_fifo_type;
                         constant testcase : in integer) is
         variable transaction : input_transaction_t;
@@ -75,7 +112,9 @@ package body agent0_pkg is
     end sequencer;
 
 
-
+	--------------
+	--  Driver  --
+	--------------
     procedure driver(variable fifo : inout work.input_transaction_fifo1_pkg.tlm_fifo_type;
         signal clk : in std_logic;
         signal rst : in std_logic;
@@ -108,7 +147,9 @@ package body agent0_pkg is
 
     end driver;
 
-
+	---------------
+	--  Monitor  --
+	---------------
     procedure monitor(variable fifo : inout work.input_transaction_fifo_pkg.tlm_fifo_type;
         signal clk : in std_logic;
         signal rst : in std_logic;
