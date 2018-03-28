@@ -1,7 +1,7 @@
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 -- HES-SO Master
 -- Haute Ecole Specialisee de Suisse Occidentale
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 -- Cours VSN
 --------------------------------------------------------------------------------
 --
@@ -60,7 +60,7 @@ package body scoreboard_pkg is
         variable trans_output : output_transaction_t;
         variable counter      : integer;
         variable expected     : std_logic_vector(7 downto 0);
-		
+
     begin
 
         raise_objection;
