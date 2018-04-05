@@ -123,7 +123,7 @@ begin
                  beat_time => 400 ns,
                  final_reporting => rep);
 
-
+  ---- Les éléments de vérification sont lancés sous forme de procédures ----
 	clk_proc : clock_generator(clk_sti, CLK_PERIOD);
 
 	rst_proc : simple_startup_reset(rst_sti, 2*CLK_PERIOD);
@@ -151,6 +151,7 @@ begin
     scoreboard : work.scoreboard_pkg.scoreboard(fifo_mon0_to_score,
                                                 fifo_mon1_to_score);
 
+  ----- Instanciation du composant à tester -------
 	----------------------------
 	--  DUV: spike_detection  --
 	----------------------------

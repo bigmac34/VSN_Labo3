@@ -1,0 +1,96 @@
+20180405T110713 selects {I /directed}
+20180405T110713 options -mseed 0
+20180405T110713 vrundir /media/sf_VSN/Macchi/VSN_Labo3/visualisation
+20180405T110713 vrmdata /media/sf_VSN/Macchi/VSN_Labo3/visualisation/VRMDATA
+20180405T110713 logfile /media/sf_VSN/Macchi/VSN_Labo3/visualisation/VRMDATA/logs/180405_110713.rmev
+20180405T110713 begin 42754@localhost /media/sf_VSN/Macchi/VSN_Labo3/visualisation/default.rmdb /media/sf_VSN/Macchi/VSN_Labo3/visualisation/VRMDATA
+20180405T110713 eligible directed/preScript {}
+20180405T110714 done directed/preScript empty
+20180405T110714 eligible directed/dirtest0/execScript {}
+20180405T110714 eligible directed/dirtest1/execScript {}
+20180405T110714 eligible directed/dirtest2/execScript {}
+20180405T110714 eligible directed/dirtest3/execScript {}
+20180405T110714 eligible directed/dirtest4/execScript {}
+20180405T110714 eligible directed/dirtest5/execScript {}
+20180405T110714 eligible directed/dirtest6/execScript {}
+20180405T110714 eligible directed/dirtest7/execScript {}
+20180405T110714 eligible directed/dirtest8/execScript {}
+20180405T110714 eligible directed/dirtest9/execScript {}
+20180405T110714 eligible directed/dirtest10/execScript {}
+20180405T110714 eligible directed/dirtest11/execScript {}
+20180405T110714 eligible directed/dirtest12/execScript {}
+20180405T110714 eligible directed/dirtest13/execScript {}
+20180405T110714 eligible directed/dirtest14/execScript {}
+20180405T110714 eligible directed/dirtest15/execScript {}
+20180405T110714 eligible directed/dirtest16/execScript {}
+20180405T110714 launched directed/dirtest0/execScript
+20180405T110714 launched directed/dirtest1/execScript
+20180405T110714 launched directed/dirtest2/execScript
+20180405T110715 launched directed/dirtest3/execScript
+20180405T110715 launched directed/dirtest4/execScript
+20180405T110715 launched directed/dirtest5/execScript
+20180405T110715 launched directed/dirtest6/execScript
+20180405T110716 launched directed/dirtest7/execScript
+20180405T110717 launched directed/dirtest8/execScript
+20180405T110717 launched directed/dirtest9/execScript
+20180405T110718 launched directed/dirtest10/execScript
+20180405T110719 launched directed/dirtest11/execScript
+20180405T110720 launched directed/dirtest12/execScript
+20180405T110720 launched directed/dirtest13/execScript
+20180405T110721 launched directed/dirtest14/execScript
+20180405T110722 launched directed/dirtest15/execScript
+20180405T110723 launched directed/dirtest16/execScript
+20180405T110724 running directed/dirtest1/execScript localhost
+20180405T110724 running directed/dirtest0/execScript localhost
+20180405T110724 running directed/dirtest3/execScript localhost
+20180405T110725 running directed/dirtest4/execScript localhost
+20180405T110726 running directed/dirtest5/execScript localhost
+20180405T110727 running directed/dirtest6/execScript localhost
+20180405T110728 running directed/dirtest8/execScript localhost
+20180405T110728 running directed/dirtest7/execScript localhost
+20180405T110730 running directed/dirtest9/execScript localhost
+20180405T110732 running directed/dirtest10/execScript localhost
+20180405T110733 running directed/dirtest12/execScript localhost
+20180405T110734 running directed/dirtest13/execScript localhost
+20180405T110735 running directed/dirtest15/execScript localhost
+20180405T110736 running directed/dirtest14/execScript localhost
+20180405T110737 running directed/dirtest16/execScript localhost
+20180405T110737 running directed/dirtest2/execScript localhost
+20180405T110741 running directed/dirtest11/execScript localhost
+20180405T111030 done directed/dirtest14/execScript killed
+20180405T111030 done directed/dirtest6/execScript killed
+20180405T111030 done directed/dirtest16/execScript killed
+20180405T111030 done directed/dirtest8/execScript killed
+20180405T111030 done directed/dirtest1/execScript killed
+20180405T111030 done directed/dirtest11/execScript killed
+20180405T111030 done directed/dirtest3/execScript killed
+20180405T111030 done directed/dirtest13/execScript killed
+20180405T111030 done directed/dirtest5/execScript killed
+20180405T111031 done directed/dirtest15/execScript killed
+20180405T111031 done directed/dirtest7/execScript killed
+20180405T111031 done directed/dirtest0/execScript killed
+20180405T111031 done directed/dirtest9/execScript killed
+20180405T111031 done directed/dirtest10/execScript killed
+20180405T111031 done directed/dirtest2/execScript killed
+20180405T111031 done directed/dirtest12/execScript killed
+20180405T111031 done directed/dirtest4/execScript killed
+20180405T111101 done directed/deleteScript dropped
+20180405T111101 done directed/dirtest0/deleteScript dropped
+20180405T111101 done directed/dirtest1/deleteScript dropped
+20180405T111101 done directed/dirtest10/deleteScript dropped
+20180405T111101 done directed/dirtest11/deleteScript dropped
+20180405T111101 done directed/dirtest12/deleteScript dropped
+20180405T111101 done directed/dirtest13/deleteScript dropped
+20180405T111101 done directed/dirtest14/deleteScript dropped
+20180405T111101 done directed/dirtest15/deleteScript dropped
+20180405T111101 done directed/dirtest16/deleteScript dropped
+20180405T111101 done directed/dirtest2/deleteScript dropped
+20180405T111101 done directed/dirtest3/deleteScript dropped
+20180405T111101 done directed/dirtest4/deleteScript dropped
+20180405T111101 done directed/dirtest5/deleteScript dropped
+20180405T111101 done directed/dirtest6/deleteScript dropped
+20180405T111101 done directed/dirtest7/deleteScript dropped
+20180405T111101 done directed/dirtest8/deleteScript dropped
+20180405T111101 done directed/dirtest9/deleteScript dropped
+20180405T111101 done directed/postScript dropped
+20180405T111101 end

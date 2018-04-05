@@ -61,7 +61,7 @@ architecture Behavioral of fifo is
     -----------
     -- types --
     -----------
-    type fifo_type is                  
+    type fifo_type is
         array (0 to FIFO_DEPTH_G-1) of std_logic_vector(DATASIZE_G-1 downto 0);
 
     ----------------------
@@ -108,8 +108,9 @@ begin
                     else
                         head_s <= head_s + 1;
                     end if;
+                end if;
                 -- Read
-                elsif rd_en_i = '1' and counter_s /= 0 then
+                if rd_en_i = '1' and counter_s /= 0 then
                     -- counter decrement
                     -- counter must be decremented only if we are not
                     -- writing and reading the same channel AND if the fifo
