@@ -72,6 +72,7 @@ package body scoreboard_pkg is
             blocking_get(fifo_output, trans_output);
             blocking_get(fifo_input, trans_input);
             report "Scoreboard received transaction number " & integer'image(counter) severity note;
+    ----- TODO, ici on va devoir changer parce qu'on va modifier les types trans_input et trans_output dans transaction_pack        
             expected := std_logic_vector(
                 unsigned(trans_input.a) +
                 unsigned(trans_input.b) +

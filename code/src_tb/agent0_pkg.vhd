@@ -86,7 +86,8 @@ package body agent0_pkg is
             when 0 =>
             for i in 0 to 9 loop
                 -- TODO : Prepare a transaction
-
+                transaction.sample := std_logic_vector(to_unsigned(i,16));
+                transaction.time_next := 100 ns;
                 blocking_put(fifo, transaction);
                 report "Sequencer : Sent transaction number " & integer'image(counter) severity note;
                 counter := counter + 1;
@@ -135,9 +136,12 @@ package body agent0_pkg is
             report "Driver received transaction number " & integer'image(counter) severity note;
             wait until falling_edge(clk);
             -- TODO : Act on the DUV
-
+            if (not rst) AND port_output.ready = '1' then
+              port_input.sample := transaction.sample;
+              port_input.sample_valid := '1';
             wait until falling_edge(clk);
-
+            port_intput.sample_valid := '0';
+            wait transaction.time_next;
             counter := counter + 1;
         end loop;
 

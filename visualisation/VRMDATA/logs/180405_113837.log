@@ -1,0 +1,102 @@
+Run Monitor daemon listening on '37600@localhost'...
+RegressionStarting: Regression started at Thu Apr  5 11:38:37 2018
+ActionStarted:   Action 'directed/dirtest0/execScript' has started at Thu Apr  5 11:38:43 2018
+ActionStarted:   Action 'directed/dirtest1/execScript' has started at Thu Apr  5 11:38:44 2018
+ActionStarted:   Action 'directed/dirtest2/execScript' has started at Thu Apr  5 11:38:47 2018
+ActionStarted:   Action 'directed/dirtest4/execScript' has started at Thu Apr  5 11:38:54 2018
+ActionStarted:   Action 'directed/dirtest5/execScript' has started at Thu Apr  5 11:38:56 2018
+ActionStarted:   Action 'directed/dirtest6/execScript' has started at Thu Apr  5 11:38:59 2018
+ActionStarted:   Action 'directed/dirtest7/execScript' has started at Thu Apr  5 11:39:02 2018
+ActionStarted:   Action 'directed/dirtest8/execScript' has started at Thu Apr  5 11:39:11 2018
+ActionStarted:   Action 'directed/dirtest3/execScript' has started at Thu Apr  5 11:39:11 2018
+ActionStarted:   Action 'directed/dirtest9/execScript' has started at Thu Apr  5 11:39:16 2018
+ActionStarted:   Action 'directed/dirtest10/execScript' has started at Thu Apr  5 11:39:17 2018
+ActionStarted:   Action 'directed/dirtest11/execScript' has started at Thu Apr  5 11:39:17 2018
+ActionStarted:   Action 'directed/dirtest12/execScript' has started at Thu Apr  5 11:39:22 2018
+ActionStarted:   Action 'directed/dirtest13/execScript' has started at Thu Apr  5 11:39:30 2018
+ActionStarted:   Action 'directed/dirtest14/execScript' has started at Thu Apr  5 11:39:31 2018
+ActionStarted:   Action 'directed/dirtest15/execScript' has started at Thu Apr  5 11:39:42 2018
+ActionStarted:   Action 'directed/dirtest16/execScript' has started at Thu Apr  5 11:39:44 2018
+Error: TIMEOUT on action 'directed/dirtest1/execScript'... failure assumed
+Error: Action 'directed/dirtest1/execScript' failed (timeout/executing):
+  logfile: /media/sf_VSN/Macchi/VSN_Labo3/visualisation/VRMDATA/directed/dirtest1/execScript.log
+ActionCompleted: Action 'directed/dirtest1/execScript' failed at Thu Apr  5 11:43:54 2018
+Error: TIMEOUT on action 'directed/dirtest5/execScript'... failure assumed
+Error: Action 'directed/dirtest5/execScript' failed (timeout/executing):
+  logfile: /media/sf_VSN/Macchi/VSN_Labo3/visualisation/VRMDATA/directed/dirtest5/execScript.log
+ActionCompleted: Action 'directed/dirtest5/execScript' failed at Thu Apr  5 11:43:59 2018
+Error: TIMEOUT on action 'directed/dirtest0/execScript'... failure assumed
+Error: Action 'directed/dirtest0/execScript' failed (timeout/executing):
+  logfile: /media/sf_VSN/Macchi/VSN_Labo3/visualisation/VRMDATA/directed/dirtest0/execScript.log
+ActionCompleted: Action 'directed/dirtest0/execScript' failed at Thu Apr  5 11:44:04 2018
+Error: TIMEOUT on action 'directed/dirtest2/execScript'... failure assumed
+Error: Action 'directed/dirtest2/execScript' failed (timeout/executing):
+  logfile: /media/sf_VSN/Macchi/VSN_Labo3/visualisation/VRMDATA/directed/dirtest2/execScript.log
+ActionCompleted: Action 'directed/dirtest2/execScript' failed at Thu Apr  5 11:44:08 2018
+Error: TIMEOUT on action 'directed/dirtest4/execScript'... failure assumed
+Error: Action 'directed/dirtest4/execScript' failed (timeout/executing):
+  logfile: /media/sf_VSN/Macchi/VSN_Labo3/visualisation/VRMDATA/directed/dirtest4/execScript.log
+ActionCompleted: Action 'directed/dirtest4/execScript' failed at Thu Apr  5 11:44:11 2018
+Error: TIMEOUT on action 'directed/dirtest6/execScript'... failure assumed
+Error: Action 'directed/dirtest6/execScript' failed (timeout/executing):
+  logfile: /media/sf_VSN/Macchi/VSN_Labo3/visualisation/VRMDATA/directed/dirtest6/execScript.log
+ActionCompleted: Action 'directed/dirtest6/execScript' failed at Thu Apr  5 11:44:13 2018
+Error: TIMEOUT on action 'directed/dirtest8/execScript'... failure assumed
+Error: Action 'directed/dirtest8/execScript' failed (timeout/executing):
+  logfile: /media/sf_VSN/Macchi/VSN_Labo3/visualisation/VRMDATA/directed/dirtest8/execScript.log
+ActionCompleted: Action 'directed/dirtest8/execScript' failed at Thu Apr  5 11:44:16 2018
+Error: TIMEOUT on action 'directed/dirtest3/execScript'... failure assumed
+Error: Action 'directed/dirtest3/execScript' failed (timeout/executing):
+  logfile: /media/sf_VSN/Macchi/VSN_Labo3/visualisation/VRMDATA/directed/dirtest3/execScript.log
+ActionCompleted: Action 'directed/dirtest3/execScript' failed at Thu Apr  5 11:44:18 2018
+Error: TIMEOUT on action 'directed/dirtest7/execScript'... failure assumed
+Error: Action 'directed/dirtest7/execScript' failed (timeout/executing):
+  logfile: /media/sf_VSN/Macchi/VSN_Labo3/visualisation/VRMDATA/directed/dirtest7/execScript.log
+ActionCompleted: Action 'directed/dirtest7/execScript' failed at Thu Apr  5 11:44:22 2018
+Error: TIMEOUT on action 'directed/dirtest9/execScript'... failure assumed
+Error: Action 'directed/dirtest9/execScript' failed (timeout/executing):
+  logfile: /media/sf_VSN/Macchi/VSN_Labo3/visualisation/VRMDATA/directed/dirtest9/execScript.log
+ActionCompleted: Action 'directed/dirtest9/execScript' failed at Thu Apr  5 11:44:24 2018
+Error: TIMEOUT on action 'directed/dirtest10/execScript'... failure assumed
+Error: Action 'directed/dirtest10/execScript' failed (timeout/executing):
+  logfile: /media/sf_VSN/Macchi/VSN_Labo3/visualisation/VRMDATA/directed/dirtest10/execScript.log
+ActionCompleted: Action 'directed/dirtest10/execScript' failed at Thu Apr  5 11:44:26 2018
+Error: TIMEOUT on action 'directed/dirtest12/execScript'... failure assumed
+Error: Action 'directed/dirtest12/execScript' failed (timeout/executing):
+  logfile: /media/sf_VSN/Macchi/VSN_Labo3/visualisation/VRMDATA/directed/dirtest12/execScript.log
+ActionCompleted: Action 'directed/dirtest12/execScript' failed at Thu Apr  5 11:44:27 2018
+Error: TIMEOUT on action 'directed/dirtest11/execScript'... failure assumed
+Error: Action 'directed/dirtest11/execScript' failed (timeout/executing):
+  logfile: /media/sf_VSN/Macchi/VSN_Labo3/visualisation/VRMDATA/directed/dirtest11/execScript.log
+ActionCompleted: Action 'directed/dirtest11/execScript' failed at Thu Apr  5 11:44:30 2018
+Error: TIMEOUT on action 'directed/dirtest14/execScript'... failure assumed
+Error: Action 'directed/dirtest14/execScript' failed (timeout/executing):
+  logfile: /media/sf_VSN/Macchi/VSN_Labo3/visualisation/VRMDATA/directed/dirtest14/execScript.log
+ActionCompleted: Action 'directed/dirtest14/execScript' failed at Thu Apr  5 11:44:33 2018
+Error: TIMEOUT on action 'directed/dirtest13/execScript'... failure assumed
+Error: Action 'directed/dirtest13/execScript' failed (timeout/executing):
+  logfile: /media/sf_VSN/Macchi/VSN_Labo3/visualisation/VRMDATA/directed/dirtest13/execScript.log
+ActionCompleted: Action 'directed/dirtest13/execScript' failed at Thu Apr  5 11:44:34 2018
+Error: TIMEOUT on action 'directed/dirtest15/execScript'... failure assumed
+Error: Action 'directed/dirtest15/execScript' failed (timeout/executing):
+  logfile: /media/sf_VSN/Macchi/VSN_Labo3/visualisation/VRMDATA/directed/dirtest15/execScript.log
+ActionCompleted: Action 'directed/dirtest15/execScript' failed at Thu Apr  5 11:44:45 2018
+Error: TIMEOUT on action 'directed/dirtest16/execScript'... failure assumed
+Error: Action 'directed/dirtest16/execScript' failed (timeout/executing):
+  logfile: /media/sf_VSN/Macchi/VSN_Labo3/visualisation/VRMDATA/directed/dirtest16/execScript.log
+ActionCompleted: Action 'directed/dirtest16/execScript' failed at Thu Apr  5 11:44:46 2018
+Waiting for 45 deferred commands to complete...
+Action script execution status:
+  Total 17 scripts prepared: 17 OK, 0 failed
+  Total 17 scripts launched: 17 OK, 0 failed
+  Total 0 scripts finished: 0 OK, 0 failed
+Action script completion status:
+  Total 17 execScript actions: 17 timeout
+  Total  1 postScript actions: 1 empty
+  Total  1  preScript actions: 1 empty
+Action script pass/fail status:
+  Passed          0    
+  Failed          17   
+  TOTAL           17   
+RegressionCompleted: Regression finished at Thu Apr  5 11:45:16 2018
+VRM total elapsed time: 6m:39s

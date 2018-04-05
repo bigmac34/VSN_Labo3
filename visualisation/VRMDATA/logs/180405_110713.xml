@@ -1,0 +1,610 @@
+<?xml version="1.0" ?>
+<drill>
+  <sample type="vrm" version="3.0" timestamp="2018-04-05 11:07:13">
+    <table name="summary">
+      <row>
+        <logfile>/media/sf_VSN/Macchi/VSN_Labo3/visualisation/VRMDATA/logs/180405_110713.rmev</logfile>
+        <starttime>2018-04-05 11:07:13</starttime>
+        <endtime>2018-04-05 11:11:01</endtime>
+        <rmdb>/media/sf_VSN/Macchi/VSN_Labo3/visualisation/default.rmdb</rmdb>
+        <vrmdata>/media/sf_VSN/Macchi/VSN_Labo3/visualisation/VRMDATA</vrmdata>
+        <actions>19</actions>
+        <options>-eventlog /media/sf_VSN/Macchi/VSN_Labo3/visualisation/VRMDATA/logs/180405_110713.rmev -mseed 0 -rmdb /media/sf_VSN/Macchi/VSN_Labo3/visualisation/default.rmdb -vrmdata /media/sf_VSN/Macchi/VSN_Labo3/visualisation/VRMDATA</options>
+        <passed>0</passed>
+        <failed>0</failed>
+        <notrun>18</notrun>
+      </row>
+    </table>
+    <table name="details">
+      <row>
+        <action>directed/preScript</action>
+        <coverage></coverage>
+        <cputime></cputime>
+        <datetime>2018-04-05 11:07:14</datetime>
+        <elapsed></elapsed>
+        <event>20180405T110714 done directed/preScript empty</event>
+        <hostname></hostname>
+        <queued></queued>
+        <status>empty</status>
+        <reason></reason>
+        <seed></seed>
+        <simtime></simtime>
+        <tplancov></tplancov>
+        <tstime></tstime>
+        <ucdbfile></ucdbfile>
+        <username></username>
+        <donetime>2018-04-05 11:07:14</donetime>
+        <extstatus></extstatus>
+        <launchtime></launchtime>
+        <mergefile></mergefile>
+        <properties>Non-sequential Group Runnable</properties>
+        <runid></runid>
+        <runstatus>empty</runstatus>
+        <starttime></starttime>
+        <testname></testname>
+        <teststatus></teststatus>
+        <timeunit></timeunit>
+        <triagefile></triagefile>
+        <ucdbproxy></ucdbproxy>
+      </row>
+      <row>
+        <action>directed/dirtest0/execScript</action>
+        <coverage></coverage>
+        <cputime></cputime>
+        <datetime>2018-04-05 11:10:31</datetime>
+        <elapsed>187</elapsed>
+        <event>20180405T111031 done directed/dirtest0/execScript killed</event>
+        <hostname>localhost</hostname>
+        <queued>10</queued>
+        <status>killed</status>
+        <reason></reason>
+        <seed></seed>
+        <simtime></simtime>
+        <tplancov></tplancov>
+        <tstime></tstime>
+        <ucdbfile></ucdbfile>
+        <username></username>
+        <donetime>2018-04-05 11:10:31</donetime>
+        <extstatus></extstatus>
+        <launchtime>2018-04-05 11:07:14</launchtime>
+        <mergefile></mergefile>
+        <properties>Task Runnable</properties>
+        <runid></runid>
+        <runstatus>killed</runstatus>
+        <starttime>2018-04-05 11:07:24</starttime>
+        <testname></testname>
+        <teststatus></teststatus>
+        <timeunit></timeunit>
+        <triagefile></triagefile>
+        <ucdbproxy></ucdbproxy>
+      </row>
+      <row>
+        <action>directed/dirtest1/execScript</action>
+        <coverage></coverage>
+        <cputime></cputime>
+        <datetime>2018-04-05 11:10:30</datetime>
+        <elapsed>186</elapsed>
+        <event>20180405T111030 done directed/dirtest1/execScript killed</event>
+        <hostname>localhost</hostname>
+        <queued>10</queued>
+        <status>killed</status>
+        <reason></reason>
+        <seed></seed>
+        <simtime></simtime>
+        <tplancov></tplancov>
+        <tstime></tstime>
+        <ucdbfile></ucdbfile>
+        <username></username>
+        <donetime>2018-04-05 11:10:30</donetime>
+        <extstatus></extstatus>
+        <launchtime>2018-04-05 11:07:14</launchtime>
+        <mergefile></mergefile>
+        <properties>Task Runnable</properties>
+        <runid></runid>
+        <runstatus>killed</runstatus>
+        <starttime>2018-04-05 11:07:24</starttime>
+        <testname></testname>
+        <teststatus></teststatus>
+        <timeunit></timeunit>
+        <triagefile></triagefile>
+        <ucdbproxy></ucdbproxy>
+      </row>
+      <row>
+        <action>directed/dirtest2/execScript</action>
+        <coverage></coverage>
+        <cputime></cputime>
+        <datetime>2018-04-05 11:10:31</datetime>
+        <elapsed>174</elapsed>
+        <event>20180405T111031 done directed/dirtest2/execScript killed</event>
+        <hostname>localhost</hostname>
+        <queued>23</queued>
+        <status>killed</status>
+        <reason></reason>
+        <seed></seed>
+        <simtime></simtime>
+        <tplancov></tplancov>
+        <tstime></tstime>
+        <ucdbfile></ucdbfile>
+        <username></username>
+        <donetime>2018-04-05 11:10:31</donetime>
+        <extstatus></extstatus>
+        <launchtime>2018-04-05 11:07:14</launchtime>
+        <mergefile></mergefile>
+        <properties>Task Runnable</properties>
+        <runid></runid>
+        <runstatus>killed</runstatus>
+        <starttime>2018-04-05 11:07:37</starttime>
+        <testname></testname>
+        <teststatus></teststatus>
+        <timeunit></timeunit>
+        <triagefile></triagefile>
+        <ucdbproxy></ucdbproxy>
+      </row>
+      <row>
+        <action>directed/dirtest3/execScript</action>
+        <coverage></coverage>
+        <cputime></cputime>
+        <datetime>2018-04-05 11:10:30</datetime>
+        <elapsed>186</elapsed>
+        <event>20180405T111030 done directed/dirtest3/execScript killed</event>
+        <hostname>localhost</hostname>
+        <queued>9</queued>
+        <status>killed</status>
+        <reason></reason>
+        <seed></seed>
+        <simtime></simtime>
+        <tplancov></tplancov>
+        <tstime></tstime>
+        <ucdbfile></ucdbfile>
+        <username></username>
+        <donetime>2018-04-05 11:10:30</donetime>
+        <extstatus></extstatus>
+        <launchtime>2018-04-05 11:07:15</launchtime>
+        <mergefile></mergefile>
+        <properties>Task Runnable</properties>
+        <runid></runid>
+        <runstatus>killed</runstatus>
+        <starttime>2018-04-05 11:07:24</starttime>
+        <testname></testname>
+        <teststatus></teststatus>
+        <timeunit></timeunit>
+        <triagefile></triagefile>
+        <ucdbproxy></ucdbproxy>
+      </row>
+      <row>
+        <action>directed/dirtest4/execScript</action>
+        <coverage></coverage>
+        <cputime></cputime>
+        <datetime>2018-04-05 11:10:31</datetime>
+        <elapsed>186</elapsed>
+        <event>20180405T111031 done directed/dirtest4/execScript killed</event>
+        <hostname>localhost</hostname>
+        <queued>10</queued>
+        <status>killed</status>
+        <reason></reason>
+        <seed></seed>
+        <simtime></simtime>
+        <tplancov></tplancov>
+        <tstime></tstime>
+        <ucdbfile></ucdbfile>
+        <username></username>
+        <donetime>2018-04-05 11:10:31</donetime>
+        <extstatus></extstatus>
+        <launchtime>2018-04-05 11:07:15</launchtime>
+        <mergefile></mergefile>
+        <properties>Task Runnable</properties>
+        <runid></runid>
+        <runstatus>killed</runstatus>
+        <starttime>2018-04-05 11:07:25</starttime>
+        <testname></testname>
+        <teststatus></teststatus>
+        <timeunit></timeunit>
+        <triagefile></triagefile>
+        <ucdbproxy></ucdbproxy>
+      </row>
+      <row>
+        <action>directed/dirtest5/execScript</action>
+        <coverage></coverage>
+        <cputime></cputime>
+        <datetime>2018-04-05 11:10:30</datetime>
+        <elapsed>184</elapsed>
+        <event>20180405T111030 done directed/dirtest5/execScript killed</event>
+        <hostname>localhost</hostname>
+        <queued>11</queued>
+        <status>killed</status>
+        <reason></reason>
+        <seed></seed>
+        <simtime></simtime>
+        <tplancov></tplancov>
+        <tstime></tstime>
+        <ucdbfile></ucdbfile>
+        <username></username>
+        <donetime>2018-04-05 11:10:30</donetime>
+        <extstatus></extstatus>
+        <launchtime>2018-04-05 11:07:15</launchtime>
+        <mergefile></mergefile>
+        <properties>Task Runnable</properties>
+        <runid></runid>
+        <runstatus>killed</runstatus>
+        <starttime>2018-04-05 11:07:26</starttime>
+        <testname></testname>
+        <teststatus></teststatus>
+        <timeunit></timeunit>
+        <triagefile></triagefile>
+        <ucdbproxy></ucdbproxy>
+      </row>
+      <row>
+        <action>directed/dirtest6/execScript</action>
+        <coverage></coverage>
+        <cputime></cputime>
+        <datetime>2018-04-05 11:10:30</datetime>
+        <elapsed>183</elapsed>
+        <event>20180405T111030 done directed/dirtest6/execScript killed</event>
+        <hostname>localhost</hostname>
+        <queued>12</queued>
+        <status>killed</status>
+        <reason></reason>
+        <seed></seed>
+        <simtime></simtime>
+        <tplancov></tplancov>
+        <tstime></tstime>
+        <ucdbfile></ucdbfile>
+        <username></username>
+        <donetime>2018-04-05 11:10:30</donetime>
+        <extstatus></extstatus>
+        <launchtime>2018-04-05 11:07:15</launchtime>
+        <mergefile></mergefile>
+        <properties>Task Runnable</properties>
+        <runid></runid>
+        <runstatus>killed</runstatus>
+        <starttime>2018-04-05 11:07:27</starttime>
+        <testname></testname>
+        <teststatus></teststatus>
+        <timeunit></timeunit>
+        <triagefile></triagefile>
+        <ucdbproxy></ucdbproxy>
+      </row>
+      <row>
+        <action>directed/dirtest7/execScript</action>
+        <coverage></coverage>
+        <cputime></cputime>
+        <datetime>2018-04-05 11:10:31</datetime>
+        <elapsed>183</elapsed>
+        <event>20180405T111031 done directed/dirtest7/execScript killed</event>
+        <hostname>localhost</hostname>
+        <queued>12</queued>
+        <status>killed</status>
+        <reason></reason>
+        <seed></seed>
+        <simtime></simtime>
+        <tplancov></tplancov>
+        <tstime></tstime>
+        <ucdbfile></ucdbfile>
+        <username></username>
+        <donetime>2018-04-05 11:10:31</donetime>
+        <extstatus></extstatus>
+        <launchtime>2018-04-05 11:07:16</launchtime>
+        <mergefile></mergefile>
+        <properties>Task Runnable</properties>
+        <runid></runid>
+        <runstatus>killed</runstatus>
+        <starttime>2018-04-05 11:07:28</starttime>
+        <testname></testname>
+        <teststatus></teststatus>
+        <timeunit></timeunit>
+        <triagefile></triagefile>
+        <ucdbproxy></ucdbproxy>
+      </row>
+      <row>
+        <action>directed/dirtest8/execScript</action>
+        <coverage></coverage>
+        <cputime></cputime>
+        <datetime>2018-04-05 11:10:30</datetime>
+        <elapsed>182</elapsed>
+        <event>20180405T111030 done directed/dirtest8/execScript killed</event>
+        <hostname>localhost</hostname>
+        <queued>11</queued>
+        <status>killed</status>
+        <reason></reason>
+        <seed></seed>
+        <simtime></simtime>
+        <tplancov></tplancov>
+        <tstime></tstime>
+        <ucdbfile></ucdbfile>
+        <username></username>
+        <donetime>2018-04-05 11:10:30</donetime>
+        <extstatus></extstatus>
+        <launchtime>2018-04-05 11:07:17</launchtime>
+        <mergefile></mergefile>
+        <properties>Task Runnable</properties>
+        <runid></runid>
+        <runstatus>killed</runstatus>
+        <starttime>2018-04-05 11:07:28</starttime>
+        <testname></testname>
+        <teststatus></teststatus>
+        <timeunit></timeunit>
+        <triagefile></triagefile>
+        <ucdbproxy></ucdbproxy>
+      </row>
+      <row>
+        <action>directed/dirtest9/execScript</action>
+        <coverage></coverage>
+        <cputime></cputime>
+        <datetime>2018-04-05 11:10:31</datetime>
+        <elapsed>181</elapsed>
+        <event>20180405T111031 done directed/dirtest9/execScript killed</event>
+        <hostname>localhost</hostname>
+        <queued>13</queued>
+        <status>killed</status>
+        <reason></reason>
+        <seed></seed>
+        <simtime></simtime>
+        <tplancov></tplancov>
+        <tstime></tstime>
+        <ucdbfile></ucdbfile>
+        <username></username>
+        <donetime>2018-04-05 11:10:31</donetime>
+        <extstatus></extstatus>
+        <launchtime>2018-04-05 11:07:17</launchtime>
+        <mergefile></mergefile>
+        <properties>Task Runnable</properties>
+        <runid></runid>
+        <runstatus>killed</runstatus>
+        <starttime>2018-04-05 11:07:30</starttime>
+        <testname></testname>
+        <teststatus></teststatus>
+        <timeunit></timeunit>
+        <triagefile></triagefile>
+        <ucdbproxy></ucdbproxy>
+      </row>
+      <row>
+        <action>directed/dirtest10/execScript</action>
+        <coverage></coverage>
+        <cputime></cputime>
+        <datetime>2018-04-05 11:10:31</datetime>
+        <elapsed>179</elapsed>
+        <event>20180405T111031 done directed/dirtest10/execScript killed</event>
+        <hostname>localhost</hostname>
+        <queued>14</queued>
+        <status>killed</status>
+        <reason></reason>
+        <seed></seed>
+        <simtime></simtime>
+        <tplancov></tplancov>
+        <tstime></tstime>
+        <ucdbfile></ucdbfile>
+        <username></username>
+        <donetime>2018-04-05 11:10:31</donetime>
+        <extstatus></extstatus>
+        <launchtime>2018-04-05 11:07:18</launchtime>
+        <mergefile></mergefile>
+        <properties>Task Runnable</properties>
+        <runid></runid>
+        <runstatus>killed</runstatus>
+        <starttime>2018-04-05 11:07:32</starttime>
+        <testname></testname>
+        <teststatus></teststatus>
+        <timeunit></timeunit>
+        <triagefile></triagefile>
+        <ucdbproxy></ucdbproxy>
+      </row>
+      <row>
+        <action>directed/dirtest11/execScript</action>
+        <coverage></coverage>
+        <cputime></cputime>
+        <datetime>2018-04-05 11:10:30</datetime>
+        <elapsed>169</elapsed>
+        <event>20180405T111030 done directed/dirtest11/execScript killed</event>
+        <hostname>localhost</hostname>
+        <queued>22</queued>
+        <status>killed</status>
+        <reason></reason>
+        <seed></seed>
+        <simtime></simtime>
+        <tplancov></tplancov>
+        <tstime></tstime>
+        <ucdbfile></ucdbfile>
+        <username></username>
+        <donetime>2018-04-05 11:10:30</donetime>
+        <extstatus></extstatus>
+        <launchtime>2018-04-05 11:07:19</launchtime>
+        <mergefile></mergefile>
+        <properties>Task Runnable</properties>
+        <runid></runid>
+        <runstatus>killed</runstatus>
+        <starttime>2018-04-05 11:07:41</starttime>
+        <testname></testname>
+        <teststatus></teststatus>
+        <timeunit></timeunit>
+        <triagefile></triagefile>
+        <ucdbproxy></ucdbproxy>
+      </row>
+      <row>
+        <action>directed/dirtest12/execScript</action>
+        <coverage></coverage>
+        <cputime></cputime>
+        <datetime>2018-04-05 11:10:31</datetime>
+        <elapsed>178</elapsed>
+        <event>20180405T111031 done directed/dirtest12/execScript killed</event>
+        <hostname>localhost</hostname>
+        <queued>13</queued>
+        <status>killed</status>
+        <reason></reason>
+        <seed></seed>
+        <simtime></simtime>
+        <tplancov></tplancov>
+        <tstime></tstime>
+        <ucdbfile></ucdbfile>
+        <username></username>
+        <donetime>2018-04-05 11:10:31</donetime>
+        <extstatus></extstatus>
+        <launchtime>2018-04-05 11:07:20</launchtime>
+        <mergefile></mergefile>
+        <properties>Task Runnable</properties>
+        <runid></runid>
+        <runstatus>killed</runstatus>
+        <starttime>2018-04-05 11:07:33</starttime>
+        <testname></testname>
+        <teststatus></teststatus>
+        <timeunit></timeunit>
+        <triagefile></triagefile>
+        <ucdbproxy></ucdbproxy>
+      </row>
+      <row>
+        <action>directed/dirtest13/execScript</action>
+        <coverage></coverage>
+        <cputime></cputime>
+        <datetime>2018-04-05 11:10:30</datetime>
+        <elapsed>176</elapsed>
+        <event>20180405T111030 done directed/dirtest13/execScript killed</event>
+        <hostname>localhost</hostname>
+        <queued>14</queued>
+        <status>killed</status>
+        <reason></reason>
+        <seed></seed>
+        <simtime></simtime>
+        <tplancov></tplancov>
+        <tstime></tstime>
+        <ucdbfile></ucdbfile>
+        <username></username>
+        <donetime>2018-04-05 11:10:30</donetime>
+        <extstatus></extstatus>
+        <launchtime>2018-04-05 11:07:20</launchtime>
+        <mergefile></mergefile>
+        <properties>Task Runnable</properties>
+        <runid></runid>
+        <runstatus>killed</runstatus>
+        <starttime>2018-04-05 11:07:34</starttime>
+        <testname></testname>
+        <teststatus></teststatus>
+        <timeunit></timeunit>
+        <triagefile></triagefile>
+        <ucdbproxy></ucdbproxy>
+      </row>
+      <row>
+        <action>directed/dirtest14/execScript</action>
+        <coverage></coverage>
+        <cputime></cputime>
+        <datetime>2018-04-05 11:10:30</datetime>
+        <elapsed>174</elapsed>
+        <event>20180405T111030 done directed/dirtest14/execScript killed</event>
+        <hostname>localhost</hostname>
+        <queued>15</queued>
+        <status>killed</status>
+        <reason></reason>
+        <seed></seed>
+        <simtime></simtime>
+        <tplancov></tplancov>
+        <tstime></tstime>
+        <ucdbfile></ucdbfile>
+        <username></username>
+        <donetime>2018-04-05 11:10:30</donetime>
+        <extstatus></extstatus>
+        <launchtime>2018-04-05 11:07:21</launchtime>
+        <mergefile></mergefile>
+        <properties>Task Runnable</properties>
+        <runid></runid>
+        <runstatus>killed</runstatus>
+        <starttime>2018-04-05 11:07:36</starttime>
+        <testname></testname>
+        <teststatus></teststatus>
+        <timeunit></timeunit>
+        <triagefile></triagefile>
+        <ucdbproxy></ucdbproxy>
+      </row>
+      <row>
+        <action>directed/dirtest15/execScript</action>
+        <coverage></coverage>
+        <cputime></cputime>
+        <datetime>2018-04-05 11:10:31</datetime>
+        <elapsed>176</elapsed>
+        <event>20180405T111031 done directed/dirtest15/execScript killed</event>
+        <hostname>localhost</hostname>
+        <queued>13</queued>
+        <status>killed</status>
+        <reason></reason>
+        <seed></seed>
+        <simtime></simtime>
+        <tplancov></tplancov>
+        <tstime></tstime>
+        <ucdbfile></ucdbfile>
+        <username></username>
+        <donetime>2018-04-05 11:10:31</donetime>
+        <extstatus></extstatus>
+        <launchtime>2018-04-05 11:07:22</launchtime>
+        <mergefile></mergefile>
+        <properties>Task Runnable</properties>
+        <runid></runid>
+        <runstatus>killed</runstatus>
+        <starttime>2018-04-05 11:07:35</starttime>
+        <testname></testname>
+        <teststatus></teststatus>
+        <timeunit></timeunit>
+        <triagefile></triagefile>
+        <ucdbproxy></ucdbproxy>
+      </row>
+      <row>
+        <action>directed/dirtest16/execScript</action>
+        <coverage></coverage>
+        <cputime></cputime>
+        <datetime>2018-04-05 11:10:30</datetime>
+        <elapsed>173</elapsed>
+        <event>20180405T111030 done directed/dirtest16/execScript killed</event>
+        <hostname>localhost</hostname>
+        <queued>14</queued>
+        <status>killed</status>
+        <reason></reason>
+        <seed></seed>
+        <simtime></simtime>
+        <tplancov></tplancov>
+        <tstime></tstime>
+        <ucdbfile></ucdbfile>
+        <username></username>
+        <donetime>2018-04-05 11:10:30</donetime>
+        <extstatus></extstatus>
+        <launchtime>2018-04-05 11:07:23</launchtime>
+        <mergefile></mergefile>
+        <properties>Task Runnable</properties>
+        <runid></runid>
+        <runstatus>killed</runstatus>
+        <starttime>2018-04-05 11:07:37</starttime>
+        <testname></testname>
+        <teststatus></teststatus>
+        <timeunit></timeunit>
+        <triagefile></triagefile>
+        <ucdbproxy></ucdbproxy>
+      </row>
+      <row>
+        <action>directed/postScript</action>
+        <coverage></coverage>
+        <cputime></cputime>
+        <datetime>2018-04-05 11:11:01</datetime>
+        <elapsed></elapsed>
+        <event>20180405T111101 done directed/postScript dropped</event>
+        <hostname></hostname>
+        <queued></queued>
+        <status>dropped</status>
+        <reason></reason>
+        <seed></seed>
+        <simtime></simtime>
+        <tplancov></tplancov>
+        <tstime></tstime>
+        <ucdbfile></ucdbfile>
+        <username></username>
+        <donetime>2018-04-05 11:11:01</donetime>
+        <extstatus></extstatus>
+        <launchtime></launchtime>
+        <mergefile></mergefile>
+        <properties>Non-sequential Group Runnable</properties>
+        <runid></runid>
+        <runstatus>dropped</runstatus>
+        <starttime></starttime>
+        <testname></testname>
+        <teststatus></teststatus>
+        <timeunit></timeunit>
+        <triagefile></triagefile>
+        <ucdbproxy></ucdbproxy>
+      </row>
+    </table>
+  </sample>
+</drill>

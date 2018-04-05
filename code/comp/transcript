@@ -1,0 +1,197 @@
+# //  Questa Sim-64
+# //  Version 10.5c_2 linux_x86_64 Oct 17 2016
+# //
+# //  Copyright 1991-2016 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# do ../scripts/sim.do
+# QuestaSim-64 vmap 10.5c_2 Lib Mapping Utility 2016.10 Oct 17 2016
+# vmap tlmvm ../tlmvm 
+# Copying /opt/mentor/questasim/questasim/linux_x86_64/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ../src
+# ../src_tb
+# QuestaSim-64 vcom 10.5c_2 Compiler 2016.10 Oct 17 2016
+# Start time: 15:05:14 on Apr 05,2018
+# vcom -reportprogress 300 ../src/spike_detection_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling package spike_detection_pkg
+# End time: 15:05:14 on Apr 05,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.5c_2 Compiler 2016.10 Oct 17 2016
+# Start time: 15:05:15 on Apr 05,2018
+# vcom -reportprogress 300 ../src/log_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling package log_pkg
+# -- Compiling package body log_pkg
+# -- Loading package log_pkg
+# End time: 15:05:15 on Apr 05,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.5c_2 Compiler 2016.10 Oct 17 2016
+# Start time: 15:05:15 on Apr 05,2018
+# vcom -reportprogress 300 ../src/fifo.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package log_pkg
+# -- Compiling entity fifo
+# -- Compiling architecture Behavioral of fifo
+# End time: 15:05:15 on Apr 05,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.5c_2 Compiler 2016.10 Oct 17 2016
+# Start time: 15:05:15 on Apr 05,2018
+# vcom -reportprogress 300 ../src/spike_detection.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity spike_detection
+# -- Compiling architecture behave of spike_detection
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package log_pkg
+# -- Loading entity fifo
+# End time: 15:05:16 on Apr 05,2018, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.5c_2 Compiler 2016.10 Oct 17 2016
+# Start time: 15:05:16 on Apr 05,2018
+# vcom -reportprogress 300 -2008 ../src_tb/transactions_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling package transactions_pkg
+# ** Error: ../src_tb/transactions_pkg.vhd(38): near ":=": (vcom-1576) expecting ';'.
+# End time: 15:05:16 on Apr 05,2018, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: /opt/mentor/questasim/questasim/linux_x86_64/vcom failed.
+# Error in macro ./../scripts/sim.do line 84
+# /opt/mentor/questasim/questasim/linux_x86_64/vcom failed.
+#     while executing
+# "vcom -2008 $Path_TB/transactions_pkg.vhd"
+#     (procedure "compile_tb" line 6)
+#     invoked from within
+# "compile_tb"
+#     (procedure "do_all" line 3)
+#     invoked from within
+# "do_all 0"
+#     invoked from within
+# "if {$argc>0} {
+#   if {[string compare $1 "all"] == 0} {
+#     do_all 0
+#   } elseif {[string compare $1 "comp_duv"] == 0} {
+#     compile_duv
+#   } elseif {[st..."
+do ../scripts/sim.do
+# ** Warning: (vlib-34) Library already exists at "tlmvm".
+# QuestaSim-64 vmap 10.5c_2 Lib Mapping Utility 2016.10 Oct 17 2016
+# vmap tlmvm ../tlmvm 
+# Modifying modelsim.ini
+# ../src
+# ../src_tb
+# QuestaSim-64 vcom 10.5c_2 Compiler 2016.10 Oct 17 2016
+# Start time: 15:07:03 on Apr 05,2018
+# vcom -reportprogress 300 ../src/spike_detection_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling package spike_detection_pkg
+# End time: 15:07:04 on Apr 05,2018, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.5c_2 Compiler 2016.10 Oct 17 2016
+# Start time: 15:07:04 on Apr 05,2018
+# vcom -reportprogress 300 ../src/log_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling package log_pkg
+# -- Compiling package body log_pkg
+# -- Loading package log_pkg
+# End time: 15:07:04 on Apr 05,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.5c_2 Compiler 2016.10 Oct 17 2016
+# Start time: 15:07:04 on Apr 05,2018
+# vcom -reportprogress 300 ../src/fifo.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package log_pkg
+# -- Compiling entity fifo
+# -- Compiling architecture Behavioral of fifo
+# End time: 15:07:05 on Apr 05,2018, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.5c_2 Compiler 2016.10 Oct 17 2016
+# Start time: 15:07:05 on Apr 05,2018
+# vcom -reportprogress 300 ../src/spike_detection.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity spike_detection
+# -- Compiling architecture behave of spike_detection
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package log_pkg
+# -- Loading entity fifo
+# End time: 15:07:06 on Apr 05,2018, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.5c_2 Compiler 2016.10 Oct 17 2016
+# Start time: 15:07:06 on Apr 05,2018
+# vcom -reportprogress 300 -2008 ../src_tb/transactions_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling package transactions_pkg
+# End time: 15:07:06 on Apr 05,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 10.5c_2 Compiler 2016.10 Oct 17 2016
+# Start time: 15:07:06 on Apr 05,2018
+# vcom -reportprogress 300 -2008 ../src_tb/transaction_fifo_pkg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package transactions_pkg
+# ** Error: (vcom-11) Could not find tlmvm.tlm_unbounded_fifo_pkg.
+# ** Error (suppressible): ../src_tb/transaction_fifo_pkg.vhd(25): (vcom-1195) Cannot find expanded name "tlmvm.tlm_unbounded_fifo_pkg".
+# ** Error: ../src_tb/transaction_fifo_pkg.vhd(29): VHDL Compiler exiting
+# End time: 15:07:06 on Apr 05,2018, Elapsed time: 0:00:00
+# Errors: 3, Warnings: 0
+# ** Error: /opt/mentor/questasim/questasim/linux_x86_64/vcom failed.
+# Error in macro ./../scripts/sim.do line 84
+# /opt/mentor/questasim/questasim/linux_x86_64/vcom failed.
+#     while executing
+# "vcom -2008 $Path_TB/transaction_fifo_pkg.vhd"
+#     (procedure "compile_tb" line 7)
+#     invoked from within
+# "compile_tb"
+#     (procedure "do_all" line 3)
+#     invoked from within
+# "do_all 0"
+#     invoked from within
+# "if {$argc>0} {
+#   if {[string compare $1 "all"] == 0} {
+#     do_all 0
+#   } elseif {[string compare $1 "comp_duv"] == 0} {
+#     compile_duv
+#   } elseif {[st..."

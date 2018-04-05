@@ -1,0 +1,133 @@
+20180405T113837 selects {I /directed}
+20180405T113837 options -nobatch -mseed 0 -runlog
+20180405T113837 vrundir /media/sf_VSN/Macchi/VSN_Labo3/visualisation
+20180405T113837 vrmdata /media/sf_VSN/Macchi/VSN_Labo3/visualisation/VRMDATA
+20180405T113837 logfile /media/sf_VSN/Macchi/VSN_Labo3/visualisation/VRMDATA/logs/180405_113837.rmev
+20180405T113837 begin 37600@localhost /media/sf_VSN/Macchi/VSN_Labo3/visualisation/default.rmdb /media/sf_VSN/Macchi/VSN_Labo3/visualisation/VRMDATA
+20180405T113837 eligible directed/preScript {}
+20180405T113837 done directed/preScript empty
+20180405T113837 eligible directed/dirtest0/execScript {}
+20180405T113838 eligible directed/dirtest1/execScript {}
+20180405T113838 eligible directed/dirtest2/execScript {}
+20180405T113838 eligible directed/dirtest3/execScript {}
+20180405T113838 eligible directed/dirtest4/execScript {}
+20180405T113838 eligible directed/dirtest5/execScript {}
+20180405T113838 eligible directed/dirtest6/execScript {}
+20180405T113838 eligible directed/dirtest7/execScript {}
+20180405T113838 eligible directed/dirtest8/execScript {}
+20180405T113838 eligible directed/dirtest9/execScript {}
+20180405T113838 eligible directed/dirtest10/execScript {}
+20180405T113838 eligible directed/dirtest11/execScript {}
+20180405T113838 eligible directed/dirtest12/execScript {}
+20180405T113838 eligible directed/dirtest13/execScript {}
+20180405T113838 eligible directed/dirtest14/execScript {}
+20180405T113838 eligible directed/dirtest15/execScript {}
+20180405T113838 eligible directed/dirtest16/execScript {}
+20180405T113839 launched directed/dirtest0/execScript
+20180405T113840 launched directed/dirtest1/execScript
+20180405T113841 launched directed/dirtest2/execScript
+20180405T113843 running directed/dirtest0/execScript localhost
+20180405T113843 launched directed/dirtest3/execScript
+20180405T113844 running directed/dirtest1/execScript localhost
+20180405T113844 launched directed/dirtest4/execScript
+20180405T113846 launched directed/dirtest5/execScript
+20180405T113847 running directed/dirtest2/execScript localhost
+20180405T113847 launched directed/dirtest6/execScript
+20180405T113849 launched directed/dirtest7/execScript
+20180405T113851 launched directed/dirtest8/execScript
+20180405T113854 running directed/dirtest4/execScript localhost
+20180405T113854 launched directed/dirtest9/execScript
+20180405T113856 running directed/dirtest5/execScript localhost
+20180405T113857 launched directed/dirtest10/execScript
+20180405T113859 running directed/dirtest6/execScript localhost
+20180405T113859 launched directed/dirtest11/execScript
+20180405T113902 running directed/dirtest7/execScript localhost
+20180405T113903 launched directed/dirtest12/execScript
+20180405T113911 running directed/dirtest8/execScript localhost
+20180405T113911 running directed/dirtest3/execScript localhost
+20180405T113912 launched directed/dirtest13/execScript
+20180405T113916 running directed/dirtest9/execScript localhost
+20180405T113916 running directed/dirtest10/execScript localhost
+20180405T113917 running directed/dirtest11/execScript localhost
+20180405T113917 launched directed/dirtest14/execScript
+20180405T113922 running directed/dirtest12/execScript localhost
+20180405T113924 launched directed/dirtest15/execScript
+20180405T113930 running directed/dirtest13/execScript localhost
+20180405T113931 launched directed/dirtest16/execScript
+20180405T113931 running directed/dirtest14/execScript localhost
+20180405T113942 running directed/dirtest15/execScript localhost
+20180405T113944 running directed/dirtest16/execScript localhost
+20180405T114353 done directed/dirtest1/execScript timeout/executing
+20180405T114354 eligible directed/dirtest1/deleteScript {}
+20180405T114359 done directed/dirtest5/execScript timeout/executing
+20180405T114400 eligible directed/dirtest5/deleteScript {}
+20180405T114400 running directed/dirtest1/deleteScript localhost
+20180405T114400 done directed/dirtest1/deleteScript skipped
+20180405T114404 done directed/dirtest0/execScript timeout/executing
+20180405T114404 eligible directed/dirtest0/deleteScript {}
+20180405T114405 running directed/dirtest5/deleteScript localhost
+20180405T114405 done directed/dirtest5/deleteScript skipped
+20180405T114408 done directed/dirtest2/execScript timeout/executing
+20180405T114409 eligible directed/dirtest2/deleteScript {}
+20180405T114409 running directed/dirtest0/deleteScript localhost
+20180405T114409 done directed/dirtest0/deleteScript skipped
+20180405T114411 done directed/dirtest4/execScript timeout/executing
+20180405T114411 eligible directed/dirtest4/deleteScript {}
+20180405T114413 done directed/dirtest6/execScript timeout/executing
+20180405T114413 eligible directed/dirtest6/deleteScript {}
+20180405T114414 running directed/dirtest2/deleteScript localhost
+20180405T114414 done directed/dirtest2/deleteScript skipped
+20180405T114415 done directed/dirtest8/execScript timeout/executing
+20180405T114416 eligible directed/dirtest8/deleteScript {}
+20180405T114416 running directed/dirtest4/deleteScript localhost
+20180405T114416 done directed/dirtest4/deleteScript skipped
+20180405T114418 done directed/dirtest3/execScript timeout/executing
+20180405T114418 eligible directed/dirtest3/deleteScript {}
+20180405T114418 running directed/dirtest6/deleteScript localhost
+20180405T114418 done directed/dirtest6/deleteScript skipped
+20180405T114422 done directed/dirtest7/execScript timeout/executing
+20180405T114422 eligible directed/dirtest7/deleteScript {}
+20180405T114422 running directed/dirtest8/deleteScript localhost
+20180405T114422 done directed/dirtest8/deleteScript skipped
+20180405T114424 done directed/dirtest9/execScript timeout/executing
+20180405T114424 eligible directed/dirtest9/deleteScript {}
+20180405T114425 running directed/dirtest3/deleteScript localhost
+20180405T114425 done directed/dirtest3/deleteScript skipped
+20180405T114426 done directed/dirtest10/execScript timeout/executing
+20180405T114426 eligible directed/dirtest10/deleteScript {}
+20180405T114427 done directed/dirtest12/execScript timeout/executing
+20180405T114427 eligible directed/dirtest12/deleteScript {}
+20180405T114428 running directed/dirtest7/deleteScript localhost
+20180405T114428 done directed/dirtest7/deleteScript skipped
+20180405T114430 done directed/dirtest11/execScript timeout/executing
+20180405T114430 eligible directed/dirtest11/deleteScript {}
+20180405T114430 running directed/dirtest9/deleteScript localhost
+20180405T114430 done directed/dirtest9/deleteScript skipped
+20180405T114431 running directed/dirtest10/deleteScript localhost
+20180405T114431 done directed/dirtest10/deleteScript skipped
+20180405T114433 done directed/dirtest14/execScript timeout/executing
+20180405T114433 eligible directed/dirtest14/deleteScript {}
+20180405T114433 running directed/dirtest12/deleteScript localhost
+20180405T114433 done directed/dirtest12/deleteScript skipped
+20180405T114434 done directed/dirtest13/execScript timeout/executing
+20180405T114434 eligible directed/dirtest13/deleteScript {}
+20180405T114435 running directed/dirtest11/deleteScript localhost
+20180405T114435 done directed/dirtest11/deleteScript skipped
+20180405T114438 running directed/dirtest14/deleteScript localhost
+20180405T114438 done directed/dirtest14/deleteScript skipped
+20180405T114439 running directed/dirtest13/deleteScript localhost
+20180405T114439 done directed/dirtest13/deleteScript skipped
+20180405T114445 done directed/dirtest15/execScript timeout/executing
+20180405T114445 eligible directed/dirtest15/deleteScript {}
+20180405T114446 done directed/dirtest16/execScript timeout/executing
+20180405T114446 eligible directed/dirtest16/deleteScript {}
+20180405T114446 eligible directed/postScript {}
+20180405T114446 done directed/postScript empty
+20180405T114446 eligible directed/deleteScript {}
+20180405T114450 running directed/dirtest15/deleteScript localhost
+20180405T114450 done directed/dirtest15/deleteScript skipped
+20180405T114451 running directed/dirtest16/deleteScript localhost
+20180405T114451 done directed/dirtest16/deleteScript skipped
+20180405T114451 running directed/deleteScript localhost
+20180405T114451 done directed/deleteScript skipped
+20180405T114516 end
