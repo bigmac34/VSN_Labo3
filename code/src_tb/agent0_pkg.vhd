@@ -20,8 +20,9 @@
 --
 --------------------------------------------------------------------------------
 -- Modifications :
--- Ver   Date        	Person     		Comments
--- 1.0	 28.03.2018		Jérémie Macchi	Mise en place
+-- Ver   Date        	Person     			Comments
+-- 1.0	 28.03.2018		Jérémie Macchi		Mise en place
+-- 1.1	 06.04.2018		Vivien Kaltenrieder	Réalisation séquenceur et moniteur
 --------------------------------------------------------------------------------
 ----------------
 -- Librairies --
@@ -74,6 +75,7 @@ end package;
 package body agent0_pkg is
 
 	constant SAMPLING : time := 33 us;
+
 	-----------------
 	--  Sequencer  --
 	-----------------
@@ -191,20 +193,26 @@ package body agent0_pkg is
     begin
 
         counter := 0;
-        for i in 0 to 9 loop
-            report "Monitor waiting for transaction number " & integer'image(counter) severity note;
+        --for i in 0 to 100000-1 loop
+            --report "Monitor waiting for transaction number " & integer'image(counter) severity note;
+		while (not no_objection) loop
             ok := false;
             while (not ok) loop
                 wait until rising_edge(clk);
                 -- TODO : Retrieve data and create a transaction
-                if (port_input.valid = '1') then
+                if (port_input.sample_valid = '1') AND (port_output.ready = '1') then
+					transaction.sample := port_input.sample;
+					transaction.time_next := SAMPLING;
                     blocking_put(fifo, transaction);
-                    report "Monitor received transaction number " & integer'image(counter) severity note;
+                    --report "Monitor received transaction number " & integer'image(counter) severity note;
+					report "Monitor send transaction number " & integer'image(counter) severity note;
                     counter := counter + 1;
                     ok := true;
+
                 end if;
             end loop;
-        end loop;
+		end loop;
+        --end loop;
 
         wait;
 
