@@ -50,6 +50,8 @@ end package;
 --------------------
 package body scoreboard_pkg is
 
+	constant NB_SAMPLES : integer := 1000;
+
 	------------------
 	--  Scoreboard  --
 	------------------
@@ -71,9 +73,9 @@ package body scoreboard_pkg is
 
 		spike := 0;
         counter0 := 0;
-		counter1:= 0;
+		counter1 := 0;
 
-        for i in 0 to 50000-1 loop
+        for i in 0 to NB_SAMPLES-1 loop
             --report "Scoreboard waiting for transaction number " & integer'image(counter0) severity note;
 			blocking_get(fifo_input, trans_input);
 
