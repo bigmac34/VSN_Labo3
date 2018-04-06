@@ -100,7 +100,7 @@ package body agent0_pkg is
 
         case testcase is
             when 0 =>
-            for i in 0 to 100000-1 loop
+            for i in 0 to 50000-1 loop
                 -- TODO : Prepare a transaction
 
 				-- Read line in file
@@ -115,7 +115,7 @@ package body agent0_pkg is
                 transaction.time_next := SAMPLING;
                 blocking_put(fifo, transaction);
                 wait for SAMPLING;
-                report "Sequencer : Sent transaction number " & integer'image(counter) severity note;
+                --report "Sequencer : Sent transaction number " & integer'image(counter) severity note;
                 counter := counter + 1;
             end loop;
 
@@ -124,17 +124,17 @@ package body agent0_pkg is
                 -- TODO : Prepare a transaction
 
                 blocking_put(fifo, transaction);
-                report "Sequencer : Sent transaction number " & integer'image(counter) severity note;
+                --report "Sequencer : Sent transaction number " & integer'image(counter) severity note;
                 counter := counter + 1;
             end loop;
 
             when others =>
-                report "Sequencer : Unsupported testcase" severity error;
+                --report "Sequencer : Unsupported testcase" severity error;
 
         end case;
 
         drop_objection;
-        report "Sequencer finished his job" severity note;
+        --report "Sequencer finished his job" severity note;
         wait;
     end sequencer;
 
@@ -156,10 +156,10 @@ package body agent0_pkg is
 
         counter := 0;
 
-        for i in 0 to 100000-1 loop
-            report "Driver waiting for transaction number " & integer'image(counter) severity note;
+        for i in 0 to 50000-1 loop
+            --report "Driver waiting for transaction number " & integer'image(counter) severity note;
             blocking_get(fifo, transaction);
-            report "Driver received transaction number " & integer'image(counter) severity note;
+            --report "Driver received transaction number " & integer'image(counter) severity note;
             wait until rising_edge(clk);
             -- TODO : Act on the DUV
             if (rst = '0') AND (port_output.ready = '1') then
@@ -205,7 +205,7 @@ package body agent0_pkg is
 					transaction.time_next := SAMPLING;
                     blocking_put(fifo, transaction);
                     --report "Monitor received transaction number " & integer'image(counter) severity note;
-					report "Monitor send transaction number " & integer'image(counter) severity note;
+					--report "Monitor send transaction number " & integer'image(counter) severity note;
                     counter := counter + 1;
                     ok := true;
 
