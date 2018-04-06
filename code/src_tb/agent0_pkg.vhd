@@ -30,6 +30,8 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+use std.textio.all;
+
 library tlmvm;
 context tlmvm.tlmvm_context;
 
@@ -71,6 +73,7 @@ end package;
 --------------------
 package body agent0_pkg is
 
+	constant SAMPLING : time := 33 us;
 	-----------------
 	--  Sequencer  --
 	-----------------
@@ -78,18 +81,38 @@ package body agent0_pkg is
                         constant testcase : in integer) is
         variable transaction : input_transaction_t;
         variable counter     : integer;
+
+		variable input_line_v : line;
+		variable value_v      : integer;
+		file input_file_f     : text;
+
+		constant INPUT_FILE_NAME : string  := "../../visualisation/src_tb/input_values.txt";
+
     begin
+
         raise_objection;
         counter := 0;
 
+        -- open source file
+        file_open(input_file_f, INPUT_FILE_NAME, read_mode);
+
         case testcase is
             when 0 =>
-            for i in 0 to 9 loop
+            for i in 0 to 100000-1 loop
                 -- TODO : Prepare a transaction
-                transaction.sample := std_logic_vector(to_unsigned(i,16));
-                transaction.time_next := 100 ns;
+
+				-- Read line in file
+				readline(input_file_f, input_line_v);
+
+				-- Extract value
+				read(input_line_v, value_v);
+
+            	transaction.sample := std_logic_vector(to_signed(value_v,16));
+
+
+                transaction.time_next := SAMPLING;
                 blocking_put(fifo, transaction);
-                wait 100 ns;
+                wait for SAMPLING;
                 report "Sequencer : Sent transaction number " & integer'image(counter) severity note;
                 counter := counter + 1;
             end loop;
@@ -131,18 +154,19 @@ package body agent0_pkg is
 
         counter := 0;
 
-        for i in 0 to 9 loop
+        for i in 0 to 100000-1 loop
             report "Driver waiting for transaction number " & integer'image(counter) severity note;
             blocking_get(fifo, transaction);
             report "Driver received transaction number " & integer'image(counter) severity note;
-            wait until falling_edge(clk);
+            wait until rising_edge(clk);
             -- TODO : Act on the DUV
-            if (not rst) AND port_output.ready = '1' then
-              port_input.sample := transaction.sample;
-              port_input.sample_valid := '1';
-            wait until falling_edge(clk);
-            port_intput.sample_valid := '0';
-            wait transaction.time_next;
+            if (rst = '0') AND (port_output.ready = '1') then
+              port_input.sample <= transaction.sample;
+              port_input.sample_valid <= '1';
+		  	end if;
+            wait until rising_edge(clk);
+            port_input.sample_valid <= '0';
+            wait for transaction.time_next;
             counter := counter + 1;
         end loop;
 
