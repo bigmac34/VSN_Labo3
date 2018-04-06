@@ -57,7 +57,7 @@ if {[file exists work] == 0} {
 }
 
 vlib tlmvm
-vmap tlmvm ../tlmvm
+##vmap tlmvm ../tlmvm
 
 puts -nonewline "  Path_VHDL => "
 set Path_DUV     "../src"
