@@ -75,6 +75,7 @@ end package;
 package body agent0_pkg is
 
 	constant SAMPLING : time := 33 us;
+	constant NB_SAMPLES : integer := 1000;
 
 	-----------------
 	--  Sequencer  --
@@ -88,11 +89,14 @@ package body agent0_pkg is
 		variable value_v      : integer;
 		file input_file_f     : text;
 
-		constant INPUT_FILE_NAME : string  := "../../visualisation/src_tb/input_values.txt";
+		variable val_mod	  : integer;
+
+		constant INPUT_FILE_NAME : string  := "../src_tb/input_values.txt";
 
     begin
 
         raise_objection;
+
         counter := 0;
 
         -- open source file
@@ -100,17 +104,36 @@ package body agent0_pkg is
 
         case testcase is
             when 0 =>
-            for i in 0 to 50000-1 loop
+            for i in 0 to NB_SAMPLES-1 loop
                 -- TODO : Prepare a transaction
 
-				-- Read line in file
-				readline(input_file_f, input_line_v);
+				-- Lecture de données stockées dans un fichier texte
+				-- -- Read line in file
+				-- readline(input_file_f, input_line_v);
+				--
+				-- -- Extract value
+				-- read(input_line_v, value_v);
+            	-- transaction.sample := std_logic_vector(to_signed(value_v,16));
 
-				-- Extract value
-				read(input_line_v, value_v);
+				-- Creation d'un spikes tout les 200 echantillons
+				val_mod := (i mod 200);
+				if val_mod /= 0 OR i < 200  then
+					transaction.sample := std_logic_vector(to_signed(500,16));
+				else
+				--	transaction.sample := std_logic_vector(to_signed((2000-val_mod*30),16));
+					transaction.sample := std_logic_vector(to_signed(1850,16));
 
-            	transaction.sample := std_logic_vector(to_signed(value_v,16));
+				end if;
 
+				--Ajout de bruit sur les echantillons
+				-- val_mod := (i mod 250);
+				-- if val_mod = 0 AND i >= 250  then
+				-- 	transaction.sample := std_logic_vector(to_signed(700,16));
+				-- elsif (i mod 2 = 0) then
+				-- 	transaction.sample := std_logic_vector(to_signed(505,16));
+				-- else
+				-- 	transaction.sample := std_logic_vector(to_signed(495,16));
+				-- end if;
 
                 transaction.time_next := SAMPLING;
                 blocking_put(fifo, transaction);
@@ -156,7 +179,7 @@ package body agent0_pkg is
 
         counter := 0;
 
-        for i in 0 to 50000-1 loop
+        for i in 0 to NB_SAMPLES-1 loop
             --report "Driver waiting for transaction number " & integer'image(counter) severity note;
             blocking_get(fifo, transaction);
             --report "Driver received transaction number " & integer'image(counter) severity note;

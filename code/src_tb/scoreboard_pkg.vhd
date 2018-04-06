@@ -50,6 +50,8 @@ end package;
 --------------------
 package body scoreboard_pkg is
 
+	constant NB_SAMPLES : integer := 1000;
+
 	------------------
 	--  Scoreboard  --
 	------------------
