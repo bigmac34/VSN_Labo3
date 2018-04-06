@@ -119,8 +119,8 @@ begin
 	--  Monitor: simulation_monitor  --
 	-----------------------------------
 	monitor: simulation_monitor
-	generic map (drain_time => 50 ns,
-                 beat_time => 400 ns,
+	generic map (drain_time => 150 ns,			-- Temps pour arret automatique
+                 beat_time => 500 ms,			-- Temps pour arret automatique
                  final_reporting => rep);
 
   ---- Les éléments de vérification sont lancés sous forme de procédures ----
