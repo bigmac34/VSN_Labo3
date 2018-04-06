@@ -62,25 +62,34 @@ package body agent1_pkg is
     ) is
         variable transaction : output_transaction_t;
         variable counter : integer;
+        variable index   : integer;
         variable ok : boolean;
+
+        variable sample_window : window;
 
     begin
 
+--      samples_spikes_o       => port1_output_obs.samples_spikes,
+--      samples_spikes_valid_o => port1_output_obs.samples_spikes_valid,
+--      spike_detected_o       => port1_output_obs.spike_detected
+
         counter := 0;
-        for i in 0 to 9 loop
-            report "Monitor waiting for transaction number " & integer'image(counter) severity note;
+        while not no_objection loop
             ok := false;
+            index := false;
             while (not ok) loop
                 wait until rising_edge(clk);
                 if (port_output.samples_spikes_valid = '1') then
-                    -- TODO : Get information and build the transaction
-
-                    blocking_put(fifo, transaction);
-                    report "Monitor received transaction number " & integer'image(counter) severity note;
-                    counter := counter + 1;
+                    transaction.samples_window(index) := port_output.samples_spikes;
+                    index := index + 1;
+                end if;
+                if (port_output.spike_detected = '1') then
                     ok := true;
                 end if;
             end loop;
+            blocking_put(fifo, transaction);
+            report "Monitor1 : Sent transaction number " & integer'image(counter) severity note;
+            counter := counter + 1;
         end loop;
 
         wait;
