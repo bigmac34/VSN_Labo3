@@ -74,9 +74,9 @@ package body agent1_pkg is
 --      spike_detected_o       => port1_output_obs.spike_detected
 
         counter := 0;
-        while not no_objection loop
+        while (not no_objection) loop
             ok := false;
-            index := false;
+            index := 0;
             while (not ok) loop
                 wait until rising_edge(clk);
                 if (port_output.samples_spikes_valid = '1') then
@@ -88,7 +88,7 @@ package body agent1_pkg is
                 end if;
             end loop;
             blocking_put(fifo, transaction);
-            report "Monitor1 : Sent transaction number " & integer'image(counter) severity note;
+            --report "Monitor1 : Sent transaction number " & integer'image(counter) severity note;
             counter := counter + 1;
         end loop;
 
