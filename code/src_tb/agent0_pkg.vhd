@@ -89,6 +89,7 @@ package body agent0_pkg is
                 transaction.sample := std_logic_vector(to_unsigned(i,16));
                 transaction.time_next := 100 ns;
                 blocking_put(fifo, transaction);
+                wait 100 ns;
                 report "Sequencer : Sent transaction number " & integer'image(counter) severity note;
                 counter := counter + 1;
             end loop;
