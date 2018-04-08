@@ -1,10 +1,6 @@
 
 # !/usr/bin/tclsh
 
-############################
-## The modification I do ###
-############################
-
 # Main proc at the end #
 
 #------------------------------------------------------------------------------
@@ -33,20 +29,20 @@ proc compile_tb { } {
 }
 
 #------------------------------------------------------------------------------
-proc sim_start {TESTCASE } {
+proc sim_start {TESTCASE ERRNO} {
 
-  vsim -t 1ns -novopt  -GTESTCASE=$TESTCASE work.spike_detection_tb
-#  do wave.do
+  vsim -t 1ns -novopt  -GTESTCASE=$TESTCASE -GERRNO=$ERRNO work.spike_detection_tb
+#  do ../scripts/wave.do
   add wave -r *
   wave refresh
   run -all
 }
 
 #------------------------------------------------------------------------------
-proc do_all {TESTCASE } {
+proc do_all {TESTCASE ERRNO} {
   compile_duv
   compile_tb
-  sim_start $TESTCASE
+  sim_start $TESTCASE $ERRNO
 }
 
 ## MAIN #######################################################################
@@ -57,7 +53,7 @@ if {[file exists work] == 0} {
 }
 
 vlib tlmvm
-##vmap tlmvm ../tlmvm
+vmap tlmvm ../tlmvm
 
 puts -nonewline "  Path_VHDL => "
 set Path_DUV     "../src"
@@ -70,7 +66,7 @@ global Path_TB
 
 if {$argc>0} {
   if {[string compare $1 "all"] == 0} {
-    do_all 0
+    do_all 0 0
   } elseif {[string compare $1 "comp_duv"] == 0} {
     compile_duv
   } elseif {[string compare $1 "comp_tb"] == 0} {
@@ -80,5 +76,5 @@ if {$argc>0} {
   }
 
 } else {
-  do_all 0
+  do_all 0 0
 }
