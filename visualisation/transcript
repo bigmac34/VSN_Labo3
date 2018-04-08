@@ -11,36 +11,3 @@
 # //  is prohibited from disclosure under the Trade Secrets Act,
 # //  18 U.S.C. Section 1905.
 # //
-# /opt/mentor/questasim/questasim/linux_x86_64/vrun -mseed 0 directed
-# // Questa Verification Run Manager 10.5c_2 Oct 17 2016 
-# //
-# //  Copyright 1991-2016 Mentor Graphics Corporation
-# //  All Rights Reserved.
-# //
-# //  Questa Verification Run Manager and its associated documentation contain trade
-# //  secrets and commercial or financial information that are the property of
-# //  Mentor Graphics Corporation and are privileged, confidential,
-# //  and exempt from disclosure under the Freedom of Information Act,
-# //  5 U.S.C. Section 552. Furthermore, this information
-# //  is prohibited from disclosure under the Trade Secrets Act,
-# //  18 U.S.C. Section 1905.
-# //
-# Run Monitor daemon listening on '37600@localhost'...
-# RegressionStarting: Regression started at Thu Apr  5 11:38:37 2018
-# ActionStarted:   Action 'directed/dirtest0/execScript' has started at Thu Apr  5 11:38:43 2018
-# ActionStarted:   Action 'directed/dirtest1/execScript' has started at Thu Apr  5 11:38:44 2018
-# ActionStarted:   Action 'directed/dirtest2/execScript' has started at Thu Apr  5 11:38:47 2018
-# ActionStarted:   Action 'directed/dirtest4/execScript' has started at Thu Apr  5 11:38:54 2018
-# ActionStarted:   Action 'directed/dirtest5/execScript' has started at Thu Apr  5 11:38:56 2018
-# ActionStarted:   Action 'directed/dirtest6/execScript' has started at Thu Apr  5 11:38:59 2018
-# ActionStarted:   Action 'directed/dirtest7/execScript' has started at Thu Apr  5 11:39:02 2018
-# ActionStarted:   Action 'directed/dirtest8/execScript' has started at Thu Apr  5 11:39:11 2018
-# ActionStarted:   Action 'directed/dirtest3/execScript' has started at Thu Apr  5 11:39:11 2018
-# ActionStarted:   Action 'directed/dirtest9/execScript' has started at Thu Apr  5 11:39:16 2018
-# ActionStarted:   Action 'directed/dirtest10/execScript' has started at Thu Apr  5 11:39:17 2018
-# ActionStarted:   Action 'directed/dirtest11/execScript' has started at Thu Apr  5 11:39:17 2018
-# ActionStarted:   Action 'directed/dirtest12/execScript' has started at Thu Apr  5 11:39:22 2018
-# ActionStarted:   Action 'directed/dirtest13/execScript' has started at Thu Apr  5 11:39:30 2018
-# ActionStarted:   Action 'directed/dirtest14/execScript' has started at Thu Apr  5 11:39:31 2018
-# ActionStarted:   Action 'directed/dirtest15/execScript' has started at Thu Apr  5 11:39:42 2018
-# ActionStarted:   Action 'directed/dirtest16/execScript' has started at Thu Apr  5 11:39:44 2018
