@@ -43,6 +43,8 @@ package scoreboard_pkg is
 	variable fifo_output : inout work.output_transaction_fifo_pkg.tlm_fifo_type
 	);
 
+	type window_comp is array (197-1 downto 0) of std_logic_vector(16-1 downto 0);
+
 end package;
 
 --------------------
@@ -56,7 +58,7 @@ package body scoreboard_pkg is
 	--  Scoreboard  --
 	------------------
 	procedure scoreboard(variable fifo_input  : inout work.input_transaction_fifo_pkg.tlm_fifo_type;
-	variable fifo_output : inout work.output_transaction_fifo_pkg.tlm_fifo_type
+						 variable fifo_output : inout work.output_transaction_fifo_pkg.tlm_fifo_type
 	) is
 		constant SIZE             : integer := 16;
 		constant LOG2_WINDOW_SIZE : integer := 7;
@@ -64,13 +66,13 @@ package body scoreboard_pkg is
 
 		variable trans_input  : input_transaction_t;
 		variable trans_output : output_transaction_t;
-		variable counter      : integer;
+		variable counter      : integer := 0;
 
 		variable expected     : std_logic_vector(7 downto 0);
 		variable ok			      : boolean;
 
 		-- For the spike detection
-		variable samples_window   : window;
+		variable window_compare   : window_comp;
 		variable index_put        : integer;
 		variable end_window_150   : integer;
 
@@ -114,18 +116,19 @@ package body scoreboard_pkg is
 
 				--------------------------- detection ----------------------
 				spike_expected := false;
-				samples_window(index_put) := trans_input.sample;
+				same_window		:= true;
+				window_compare(index_put) := trans_input.sample;
 
 				-- On en calcul pas avant d'avoir 128 échantillons
 				if i >= AVERAGE then
 					--- Moyenne glissante
-					moving_average 									:= moving_average + signed(trans_input.sample(SIZE-1 downto DIV_128)) - moving_average(SIZE-1 downto DIV_128);
+					moving_average 					:= moving_average + signed(trans_input.sample(SIZE-1 downto DIV_128)) - moving_average(SIZE-1 downto DIV_128);
 
 					--- Squared deviation
-					sample_squared     							:= signed(trans_input.sample) * signed(trans_input.sample);
-					sum_squared  										:= sample_squared - sum_squared(SIZE*2+LOG2_WINDOW_SIZE-1 downto DIV_128) + sum_squared;
-					moving_average_squared  				:= moving_average * moving_average;
-					standard_deviation_squared 			:= sum_squared(SIZE*2+LOG2_WINDOW_SIZE-1 downto DIV_128) - moving_average_squared;
+					sample_squared     				:= signed(trans_input.sample) * signed(trans_input.sample);
+					sum_squared  					:= sample_squared - sum_squared(SIZE*2+LOG2_WINDOW_SIZE-1 downto DIV_128) + sum_squared;
+					moving_average_squared  		:= moving_average * moving_average;
+					standard_deviation_squared 		:= sum_squared(SIZE*2+LOG2_WINDOW_SIZE-1 downto DIV_128) - moving_average_squared;
 
 					--- Calcul for the comparaison
 					product_std_dev_factor_squared 	:= standard_deviation_squared * FACTOR_DETECTION;
@@ -134,7 +137,7 @@ package body scoreboard_pkg is
 				end if;
 
 				if dev_squared > product_std_dev_factor_squared then
-					end_window_150 := (index_put + N_AFTER) mod (WINDOW_SIZE);
+					end_window_150 := (index_put + WINDOW_SIZE - 2) mod 198;
 				end if;
 
 				if index_put = end_window_150 then
@@ -143,17 +146,19 @@ package body scoreboard_pkg is
 
 				----------------- Check case ------------------------------------------
 				if ok and spike_expected then
-					report "On a reçu un spike au bon moment              --------- In scoreboard" severity note;
-					for j in index_put to index_put + WINDOW_SIZE loop
-						if samples_window(j mod WINDOW_SIZE) /= trans_output.samples_window(j-index_put) then
+					report "On a recu un spike au bon moment              --------- In scoreboard" severity note;
+					for j in index_put to index_put + WINDOW_SIZE - 1 loop
+						--report "J:" & integer'image(j) & "    " & integer'image(to_integer(unsigned(window_compare((j+201) mod 200)))) & "/=" & integer'image(to_integer(unsigned(trans_output.samples_window(j-index_put))));
+						if window_compare((j+198) mod 197) /= trans_output.samples_window(j-index_put) then
 							same_window := false;
+							report "----------------------- Faux a: J=" & integer'image(j-index_put) & "    " & integer'image(to_integer(unsigned(window_compare((j+198) mod 197)))) & "/=" & integer'image(to_integer(unsigned(trans_output.samples_window(j-index_put))));
 						end if;
 					end loop;
 					if not same_window then
-						report "La fenêtre ne possaide pas les bons échantillions --- In scoreboard" severity error;
+						report "La fenetre ne possede pas les bons echantillions --- In scoreboard" severity error;
 					end if;
 				elsif ok and not spike_expected then
-					report "On a reçu un spike alors qu'il n'y en a pas   --------- In scoreboard" severity error;
+					report "On a recu un spike alors qu'il n'y en a pas   --------- In scoreboard" severity error;
 				elsif not ok and spike_expected then
 					report "On devait avoir un spike mais il n'y en a pas eu------- In scoreboard" severity error;
 				else
@@ -162,7 +167,7 @@ package body scoreboard_pkg is
 
 				----------
 				counter := counter + 1;
-				if index_put >= WINDOW_SIZE - 1 then
+				if index_put >= 197 - 1 then
 					index_put := 0;
 				else
 					index_put := index_put + 1;
