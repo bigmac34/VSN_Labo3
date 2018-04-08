@@ -11,7 +11,7 @@ namespace eval runmgr {
     return
   }
   proc rm_message {mesg {stat {0}}} {
-    catch {RunManager::Main -dest 37600@localhost -send user -code $stat -message $mesg directed/dirtest10/execScript}
+    catch {RunManager::Main -dest 40077@localhost -send user -code $stat -message $mesg directed/dirtest10/execScript}
     return
   }
   proc rm_done {} {
@@ -21,7 +21,7 @@ namespace eval runmgr {
     if {$rm_gone} {
       puts stderr "Blocking bogus 'done' (directed/dirtest10/execScript)"
     } else {
-      catch {RunManager::Main -dest 37600@localhost -send done -code $rm_stat -message $rm_mesg directed/dirtest10/execScript}
+      catch {RunManager::Main -dest 40077@localhost -send done -code $rm_stat -message $rm_mesg directed/dirtest10/execScript}
     }
     set rm_gone 1
     return
@@ -38,7 +38,7 @@ proc quit {args} {
     }
     transcript file {}
     runmgr::rm_quit -sim
-    cd /media/sf_VSN/Macchi/VSN_Labo3/visualisation
+    cd /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation
     runmgr::rm_done
     eval runmgr::rm_quit $args
     puts stderr "Fake 'quit $args' returned (Oops...)"
@@ -57,7 +57,7 @@ transcript on
 onbreak {resume}
 onerror {runmgr::rm_status 1 {Runtime error}}
 onElabError {runmgr::rm_status 1 {Elaboration error}; quit -f}
-quietly set ::env(XML2UCDB_INI_PATH) {/media/sf_VSN/Macchi/VSN_Labo3/visualisation}
+quietly set ::env(XML2UCDB_INI_PATH) {/mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation}
 quietly set ::env(MTI_VRM_CONTEXT) {directed/dirtest10/execScript}
 if {[info exists ::env(MTI_VRUN_INTERACTIVE)]} {
   quietly set ::env(MTI_VRUN_VSIMOPTIONS) {-i}
@@ -65,8 +65,8 @@ if {[info exists ::env(MTI_VRUN_INTERACTIVE)]} {
   quietly set ::env(MTI_VRUN_VSIMOPTIONS) {-c}
 }
 quietly catch {
-  cd /media/sf_VSN/Macchi/VSN_Labo3/visualisation/VRMDATA/directed/dirtest10
-  catch {RunManager::Main -dest 37600@localhost -send start directed/dirtest10/execScript}
+  cd /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/VRMDATA/directed/dirtest10
+  catch {RunManager::Main -dest 40077@localhost -send start directed/dirtest10/execScript}
   transcript file execScript.log
   do execScript.do
 }

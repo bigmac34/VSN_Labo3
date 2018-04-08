@@ -32,8 +32,8 @@ proc compile_tb { } {
 proc sim_start {TESTCASE ERRNO} {
 
   vsim -t 1ns -novopt  -GTESTCASE=$TESTCASE -GERRNO=$ERRNO work.spike_detection_tb
-#  do ../scripts/wave.do
-  add wave -r *
+  do ../scripts/wave.do
+#  add wave -r *
   wave refresh
   run -all
 }
@@ -53,7 +53,8 @@ if {[file exists work] == 0} {
 }
 
 vlib tlmvm
-vmap tlmvm ../tlmvm
+##vmap tlmvm ../tlmvm
+vmap tlmvm tlmvm
 
 puts -nonewline "  Path_VHDL => "
 set Path_DUV     "../src"
@@ -76,5 +77,5 @@ if {$argc>0} {
   }
 
 } else {
-  do_all 0 0
+  do_all 1 0
 }

@@ -96,60 +96,51 @@ package body agent0_pkg is
     begin
 
         raise_objection;
-
+		
         counter := 0;
 
-        -- open source file
-        file_open(input_file_f, INPUT_FILE_NAME, read_mode);
-
         case testcase is
+			-- Test avec les données stockées dans un fichier --
             when 0 =>
-            for i in 0 to NB_SAMPLES-1 loop
-                -- TODO : Prepare a transaction
+				-- open source file
+				file_open(input_file_f, INPUT_FILE_NAME, read_mode);
 
-				-- Lecture de données stockées dans un fichier texte
-				-- -- Read line in file
-				-- readline(input_file_f, input_line_v);
-				--
-				-- -- Extract value
-				-- read(input_line_v, value_v);
-            	-- transaction.sample := std_logic_vector(to_signed(value_v,16));
+	            for i in 0 to NB_SAMPLES-1 loop
+					-- Read line in file
+					readline(input_file_f, input_line_v);
 
-				-- Creation d'un spikes tout les 200 echantillons
-				val_mod := (i mod 200);
-				if val_mod /= 0 OR i < 200  then
-					transaction.sample := std_logic_vector(to_signed(500,16));
-				else
-				--	transaction.sample := std_logic_vector(to_signed((2000-val_mod*30),16));
-					transaction.sample := std_logic_vector(to_signed(1850,16));
+					-- Extract value
+					read(input_line_v, value_v);
+	            	transaction.sample := std_logic_vector(to_signed(value_v,16));
 
-				end if;
+	                transaction.time_next := SAMPLING;
+	                blocking_put(fifo, transaction);
+	                wait for SAMPLING;
+	                --report "Sequencer : Sent transaction number " & integer'image(counter) severity note;
+	                counter := counter + 1;
+	            end loop;
 
-				--Ajout de bruit sur les echantillons
-				-- val_mod := (i mod 250);
-				-- if val_mod = 0 AND i >= 250  then
-				-- 	transaction.sample := std_logic_vector(to_signed(700,16));
-				-- elsif (i mod 2 = 0) then
-				-- 	transaction.sample := std_logic_vector(to_signed(505,16));
-				-- else
-				-- 	transaction.sample := std_logic_vector(to_signed(495,16));
-				-- end if;
-
-                transaction.time_next := SAMPLING;
-                blocking_put(fifo, transaction);
-                wait for SAMPLING;
-                --report "Sequencer : Sent transaction number " & integer'image(counter) severity note;
-                counter := counter + 1;
-            end loop;
-
+			-- Test avec des spikes tout les 200 echantillons --
             when 1 =>
-            for i in 0 to 9 loop
-                -- TODO : Prepare a transaction
+	            for i in 0 to NB_SAMPLES-1 loop
+					-- Valeur de base
+					val_mod := (i mod 200);
+					if val_mod /= 0 OR i < 200  then
+						transaction.sample := std_logic_vector(to_signed(500,16));
+					-- Spikes negatifs
+					elsif (i mod 400) = 0 then
+						transaction.sample := std_logic_vector(to_signed(-850,16));
+					-- Spikes positifs
+					else
+						transaction.sample := std_logic_vector(to_signed(1850,16));
+					end if;
 
-                blocking_put(fifo, transaction);
-                --report "Sequencer : Sent transaction number " & integer'image(counter) severity note;
-                counter := counter + 1;
-            end loop;
+	                transaction.time_next := SAMPLING;
+	                blocking_put(fifo, transaction);
+	                wait for SAMPLING;
+	                --report "Sequencer : Sent transaction number " & integer'image(counter) severity note;
+	                counter := counter + 1;
+	            end loop;
 
             when others =>
                 --report "Sequencer : Unsupported testcase" severity error;

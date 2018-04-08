@@ -6,7 +6,6 @@
   <runnable name="directed" type="group">
     <parameters>
         <parameter name="ucdbfile">../(%INSTANCE%).ucdb</parameter>
-        <parameter name="INPUT_FILE_NAME">(%RMDBDIR%)/src_tb/input_values.txt</parameter>
     </parameters>
     <members>
       <member>dirtest0</member>
@@ -31,11 +30,19 @@
     <execScript>
       <command>file delete -force work</command>
       <command>vlib work</command>
-      <command>vcom (%RMDBDIR%)/src/log_pkg.vhd</command>
-      <command>vcom (%RMDBDIR%)/src/fifo.vhd</command>
-      <command>vcom (%RMDBDIR%)/src/spike_detection.vhd</command>
-      <command>vcom (%RMDBDIR%)/src_tb/spike_detection_tb.vhd</command>
-      <command>vsim -GERRNO=(%errno%) -GINPUT_FILE_NAME=(%INPUT_FILE_NAME%) work.spike_detection_tb</command>
+      <command>vmap work work</command>
+      <command>ln -s (%RMDBDIR%)/tlmvm</command>
+      <command>vcom -2008 (%RMDBDIR%)/src/spike_detection_pkg.vhd</command>
+      <command>vcom -2008 (%RMDBDIR%)/src/log_pkg.vhd</command>
+      <command>vcom -2008 (%RMDBDIR%)/src/fifo.vhd</command>
+      <command>vcom -2008 (%RMDBDIR%)/src/spike_detection.vhd</command>
+      <command>vcom -2008 (%RMDBDIR%)/src_tb/transactions_pkg.vhd</command>
+      <command>vcom -2008 (%RMDBDIR%)/src_tb/transaction_fifo_pkg.vhd</command>
+      <command>vcom -2008 (%RMDBDIR%)/src_tb/agent0_pkg.vhd</command>
+      <command>vcom -2008 (%RMDBDIR%)/src_tb/agent1_pkg.vhd</command>
+      <command>vcom -2008 (%RMDBDIR%)/src_tb/scoreboard_pkg.vhd</command>
+      <command>vcom -2008 (%RMDBDIR%)/src_tb/spike_detection_tb.vhd</command>
+      <command>vsim -GERRNO=(%errno%) work.spike_detection_tb</command>
       <command>run -all</command>
       <command>coverage attribute -name ERRNO -value (%INSTANCE%)</command>
       <command>coverage save (%ucdbfile%)</command>

@@ -91,8 +91,8 @@ begin
 
 
 	monitor: simulation_monitor
-	generic map (drain_time => 50 ns,
-                 beat_time => 400 ns,
+	generic map (drain_time => 150 ns,
+                 beat_time => 30 ms,
                  final_reporting => rep);
 
 
