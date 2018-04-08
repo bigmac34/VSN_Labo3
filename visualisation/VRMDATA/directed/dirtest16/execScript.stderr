@@ -1,2 +1,1 @@
-Fatal: vsim caught SIGTERM. Closing vsimk kernel.
 Signal SIGTERM caught... Closing vish.

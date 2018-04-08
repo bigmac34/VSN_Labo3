@@ -11,7 +11,7 @@ namespace eval runmgr {
     return
   }
   proc rm_message {mesg {stat {0}}} {
-    catch {RunManager::Main -dest 37600@localhost -send user -code $stat -message $mesg directed/dirtest14/execScript}
+    catch {RunManager::Main -dest 40380@localhost -send user -code $stat -message $mesg directed/dirtest14/execScript}
     return
   }
   proc rm_done {} {
@@ -21,7 +21,7 @@ namespace eval runmgr {
     if {$rm_gone} {
       puts stderr "Blocking bogus 'done' (directed/dirtest14/execScript)"
     } else {
-      catch {RunManager::Main -dest 37600@localhost -send done -code $rm_stat -message $rm_mesg directed/dirtest14/execScript}
+      catch {RunManager::Main -dest 40380@localhost -send done -code $rm_stat -message $rm_mesg directed/dirtest14/execScript}
     }
     set rm_gone 1
     return
@@ -66,7 +66,7 @@ if {[info exists ::env(MTI_VRUN_INTERACTIVE)]} {
 }
 quietly catch {
   cd /media/sf_VSN/Macchi/VSN_Labo3/visualisation/VRMDATA/directed/dirtest14
-  catch {RunManager::Main -dest 37600@localhost -send start directed/dirtest14/execScript}
+  catch {RunManager::Main -dest 40380@localhost -send start directed/dirtest14/execScript}
   transcript file execScript.log
   do execScript.do
 }

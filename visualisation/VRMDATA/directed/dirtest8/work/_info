@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 d/media/sf_VSN/Macchi/VSN_Labo3/visualisation/VRMDATA/directed/dirtest8
 Efifo
-Z1 w1521726587
+Z1 w1522935720
 Z2 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
 Z3 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
 Z4 DPx4 work 7 log_pkg 0 22 i;5XU[8^69@Ke]USkhaYb1
@@ -25,13 +25,13 @@ VgW14FB8g7JFjCGeLo?5=K2
 !s100 [7EDhMJZVJ<a:<LafaeAh3
 Z10 OL;C;10.5c_2;63
 32
-!s110 1522921156
+Z11 !s110 1523174867
 !i10b 1
-Z11 !s108 1522921155.000000
-Z12 !s90 /media/sf_VSN/Macchi/VSN_Labo3/visualisation/src/fifo.vhd|
-Z13 !s107 /media/sf_VSN/Macchi/VSN_Labo3/visualisation/src/fifo.vhd|
+Z12 !s108 1523174866.000000
+Z13 !s90 /media/sf_VSN/Macchi/VSN_Labo3/visualisation/src/fifo.vhd|
+Z14 !s107 /media/sf_VSN/Macchi/VSN_Labo3/visualisation/src/fifo.vhd|
 !i113 0
-Z14 tExplicit 1 CvgOpt 0
+Z15 tExplicit 1 CvgOpt 0
 Abehavioral
 R2
 R3
@@ -39,29 +39,29 @@ R4
 R5
 R6
 R7
-Z15 DEx4 work 4 fifo 0 22 gW14FB8g7JFjCGeLo?5=K2
+Z16 DEx4 work 4 fifo 0 22 gW14FB8g7JFjCGeLo?5=K2
 l78
 L59
-VG7`0VP[V4<gGMo@I4M`@S2
-!s100 Y54bg<JFnShKANZ<mRCff0
+VbMYe^Icm6ej0gYDI`8H1P3
+!s100 MOZ^fWPL]Dcgk:<il=B<P3
 R10
 32
-!s110 1522921157
-!i10b 1
 R11
+!i10b 1
 R12
 R13
-!i113 0
 R14
+!i113 0
+R15
 Plog_pkg
 R2
 R3
 R6
 R7
-R1
+Z17 w1521726587
 R0
-Z16 8/media/sf_VSN/Macchi/VSN_Labo3/visualisation/src/log_pkg.vhd
-Z17 F/media/sf_VSN/Macchi/VSN_Labo3/visualisation/src/log_pkg.vhd
+Z18 8/media/sf_VSN/Macchi/VSN_Labo3/visualisation/src/log_pkg.vhd
+Z19 F/media/sf_VSN/Macchi/VSN_Labo3/visualisation/src/log_pkg.vhd
 l0
 L25
 Vi;5XU[8^69@Ke]USkhaYb1
@@ -69,13 +69,13 @@ Vi;5XU[8^69@Ke]USkhaYb1
 R10
 32
 b1
-Z18 !s110 1522921154
+Z20 !s110 1523174866
 !i10b 1
-Z19 !s108 1522921152.000000
-Z20 !s90 /media/sf_VSN/Macchi/VSN_Labo3/visualisation/src/log_pkg.vhd|
-Z21 !s107 /media/sf_VSN/Macchi/VSN_Labo3/visualisation/src/log_pkg.vhd|
+Z21 !s108 1523174865.000000
+Z22 !s90 /media/sf_VSN/Macchi/VSN_Labo3/visualisation/src/log_pkg.vhd|
+Z23 !s107 /media/sf_VSN/Macchi/VSN_Labo3/visualisation/src/log_pkg.vhd|
 !i113 0
-R14
+R15
 Bbody
 R4
 R2
@@ -88,122 +88,122 @@ V?M7Ra49QJa^PYE]7o13f@2
 !s100 [6kBOV;N_:bkWOOQZShOI2
 R10
 32
-R18
-!i10b 1
-R19
 R20
+!i10b 1
 R21
+R22
+R23
 !i113 0
-R14
+R15
 Espike_detection
 R1
 R5
 R6
 R7
 R0
-Z22 8/media/sf_VSN/Macchi/VSN_Labo3/visualisation/src/spike_detection.vhd
-Z23 F/media/sf_VSN/Macchi/VSN_Labo3/visualisation/src/spike_detection.vhd
+Z24 8/media/sf_VSN/Macchi/VSN_Labo3/visualisation/src/spike_detection.vhd
+Z25 F/media/sf_VSN/Macchi/VSN_Labo3/visualisation/src/spike_detection.vhd
 l0
-L36
-VNJzo:Z;bCjZmLTQ=dEHiJ3
-!s100 Y8[I<jOS0A:Hh1ZEbffkb2
+L37
+Vh=TV><:F6VXT>8?8_BEMI0
+!s100 n0eEbV4hF`2D=EHVdD;c@3
 R10
 32
-Z24 !s110 1522921159
+Z26 !s110 1523174868
 !i10b 1
-Z25 !s108 1522921157.000000
-Z26 !s90 /media/sf_VSN/Macchi/VSN_Labo3/visualisation/src/spike_detection.vhd|
-Z27 !s107 /media/sf_VSN/Macchi/VSN_Labo3/visualisation/src/spike_detection.vhd|
+Z27 !s108 1523174868.000000
+Z28 !s90 /media/sf_VSN/Macchi/VSN_Labo3/visualisation/src/spike_detection.vhd|
+Z29 !s107 /media/sf_VSN/Macchi/VSN_Labo3/visualisation/src/spike_detection.vhd|
 !i113 0
-R14
+R15
 Abehave
 R2
 R3
 R4
-R15
+R16
 R5
 R6
 R7
-Z28 DEx4 work 15 spike_detection 0 22 NJzo:Z;bCjZmLTQ=dEHiJ3
-l110
-L58
-VPPnWYccVSAW04X^gX<;lT3
-!s100 8fZOHRIJ;?HnDQRnmXWOE0
+Z30 DEx4 work 15 spike_detection 0 22 h=TV><:F6VXT>8?8_BEMI0
+l112
+L59
+V]lzJMEM8cHiz91>Je5><40
+!s100 3jF6IOom@lFg^W4Sn=ZmT1
 R10
 32
-R24
-!i10b 1
-R25
 R26
+!i10b 1
 R27
+R28
+R29
 !i113 0
-R14
+R15
 Espike_detection_tb
-R1
-Z29 DPx4 ieee 16 std_logic_textio 0 22 V5TSK`;aJKC<l]CEg1>mz1
+R17
+Z31 DPx4 ieee 16 std_logic_textio 0 22 V5TSK`;aJKC<l]CEg1>mz1
 R5
 R6
 R7
 R0
-Z30 8/media/sf_VSN/Macchi/VSN_Labo3/visualisation/src_tb/spike_detection_tb.vhd
-Z31 F/media/sf_VSN/Macchi/VSN_Labo3/visualisation/src_tb/spike_detection_tb.vhd
+Z32 8/media/sf_VSN/Macchi/VSN_Labo3/visualisation/src_tb/spike_detection_tb.vhd
+Z33 F/media/sf_VSN/Macchi/VSN_Labo3/visualisation/src_tb/spike_detection_tb.vhd
 l0
 L30
 V_>?cCh_3L6fOlbFc]2XRH0
 !s100 LXQai_=S6fXMVD3NRB:Pf2
 R10
 32
-Z32 !s110 1522921162
+!s110 1523174880
 !i10b 1
-Z33 !s108 1522921160.000000
-Z34 !s90 /media/sf_VSN/Macchi/VSN_Labo3/visualisation/src_tb/spike_detection_tb.vhd|
-Z35 !s107 /media/sf_VSN/Macchi/VSN_Labo3/visualisation/src_tb/spike_detection_tb.vhd|
+Z34 !s108 1523174869.000000
+Z35 !s90 /media/sf_VSN/Macchi/VSN_Labo3/visualisation/src_tb/spike_detection_tb.vhd|
+Z36 !s107 /media/sf_VSN/Macchi/VSN_Labo3/visualisation/src_tb/spike_detection_tb.vhd|
 !i113 0
-R14
+R15
 Atest_bench
-R28
-R29
+R30
+R31
 R5
 R6
 R7
-Z36 DEx4 work 18 spike_detection_tb 0 22 _>?cCh_3L6fOlbFc]2XRH0
+Z37 DEx4 work 18 spike_detection_tb 0 22 _>?cCh_3L6fOlbFc]2XRH0
 l69
 L39
 VcmPjAIffRZ5BQ47Vh41392
 !s100 d<E>@eN6h_`P_GHcgEOoF1
 R10
 32
-R32
+Z38 !s110 1523174881
 !i10b 1
-R33
 R34
 R35
+R36
 !i113 0
-R14
+R15
 Cspike_detection_tb_test_bench_cfg
 espike_detection_tb
 atest_bench
-R28
+R30
 DAx4 work 18 spike_detection_tb 10 test_bench 22 cmPjAIffRZ5BQ47Vh41392
-R29
+R31
 R5
 R6
 R7
-R36
-R1
+R37
+R17
 R0
-R30
-R31
+R32
+R33
 l0
 L203
 Vk@jLJ;@N54G<9[W@VOMUD3
 !s100 CQIF7LEVWB31n[9zbm5X?2
 R10
 32
-R32
+R38
 !i10b 0
-R33
 R34
 R35
+R36
 !i113 0
-R14
+R15
