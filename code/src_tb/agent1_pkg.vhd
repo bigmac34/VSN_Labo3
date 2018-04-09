@@ -84,7 +84,7 @@ package body agent1_pkg is
                 if (port_output.samples_spikes_valid = '1') then
                     transaction.samples_window(index) := port_output.samples_spikes;
 
-					report "------------- : Put index number " & integer'image(index) severity note;
+					--report "------------- : Put index number " & integer'image(index) severity note;
 					index := index + 1;
                 end if;
                 if (port_output.spike_detected = '1') then

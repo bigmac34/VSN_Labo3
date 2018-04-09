@@ -43,7 +43,7 @@ package scoreboard_pkg is
 	variable fifo_output : inout work.output_transaction_fifo_pkg.tlm_fifo_type
 	);
 
-	type window_comp is array (197-1 downto 0) of std_logic_vector(16-1 downto 0);
+	type window_comp is array (199-1 downto 0) of std_logic_vector(16-1 downto 0);
 
 end package;
 
@@ -52,7 +52,7 @@ end package;
 --------------------
 package body scoreboard_pkg is
 
-	constant NB_SAMPLES : integer := 1000;
+	constant NB_SAMPLES : integer := 10000;
 
 	------------------
 	--  Scoreboard  --
@@ -137,7 +137,7 @@ package body scoreboard_pkg is
 				end if;
 
 				if dev_squared > product_std_dev_factor_squared then
-					end_window_150 := (index_put + WINDOW_SIZE - 2) mod 198;
+					end_window_150 := (index_put + WINDOW_SIZE - 1) mod 200;
 				end if;
 
 				if index_put = end_window_150 then
@@ -149,9 +149,9 @@ package body scoreboard_pkg is
 					report "On a recu un spike au bon moment              --------- In scoreboard" severity note;
 					for j in index_put to index_put + WINDOW_SIZE - 1 loop
 						--report "J:" & integer'image(j) & "    " & integer'image(to_integer(unsigned(window_compare((j+201) mod 200)))) & "/=" & integer'image(to_integer(unsigned(trans_output.samples_window(j-index_put))));
-						if window_compare((j+198) mod 197) /= trans_output.samples_window(j-index_put) then
+						if window_compare((j+200) mod 199) /= trans_output.samples_window(j-index_put) then
 							same_window := false;
-							report "----------------------- Faux a: J=" & integer'image(j-index_put) & "    " & integer'image(to_integer(unsigned(window_compare((j+198) mod 197)))) & "/=" & integer'image(to_integer(unsigned(trans_output.samples_window(j-index_put))));
+							report "----------------------- Faux a: J=" & integer'image(j-index_put) & "    " & integer'image(to_integer(unsigned(window_compare((j+200) mod 199)))) & "/=" & integer'image(to_integer(unsigned(trans_output.samples_window(j-index_put))));
 						end if;
 					end loop;
 					if not same_window then
@@ -167,7 +167,7 @@ package body scoreboard_pkg is
 
 				----------
 				counter := counter + 1;
-				if index_put >= 197 - 1 then
+				if index_put >= 199 - 1 then
 					index_put := 0;
 				else
 					index_put := index_put + 1;
