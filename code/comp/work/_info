@@ -26,7 +26,7 @@ Z13 DPx5 tlmvm 13 heartbeat_pkg 0 22 Iz`53<3^O@CjFGTE^RRfg3
 Z14 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 Z15 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z16 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
-Z17 w1523200921
+Z17 w1523266560
 Z18 d/mnt/hgfs/VSN/Labos/labo3_spikeonchip/code/comp
 Z19 8../src_tb/agent0_pkg.vhd
 Z20 F../src_tb/agent0_pkg.vhd
@@ -37,9 +37,9 @@ VeQ5oC8d^Ab>5U9^;TBcG>3
 Z21 OL;C;10.5c_2;63
 33
 b1
-Z22 !s110 1523206527
+Z22 !s110 1523267298
 !i10b 1
-Z23 !s108 1523206527.000000
+Z23 !s108 1523267298.000000
 Z24 !s90 -reportprogress|300|-2008|../src_tb/agent0_pkg.vhd|
 Z25 !s107 ../src_tb/agent0_pkg.vhd|
 !i113 0
@@ -65,11 +65,11 @@ R14
 R15
 R16
 33
-Z29 !s110 1523206528
+R22
 l0
 L75
-VD`J3kBDi6ElSjDiHaWY`g1
-!s100 =iSYVjNeBC<d[m0SD6hk]0
+VhG;DcfMIdfo;_K6dHJ]TO3
+!s100 `bVBg]:P[DRJh;`j]O^ZL1
 R21
 !i10b 1
 R23
@@ -94,10 +94,10 @@ R13
 R14
 R15
 R16
-Z30 w1523206478
+Z29 w1523266432
 R18
-Z31 8../src_tb/agent1_pkg.vhd
-Z32 F../src_tb/agent1_pkg.vhd
+Z30 8../src_tb/agent1_pkg.vhd
+Z31 F../src_tb/agent1_pkg.vhd
 l0
 L39
 V3fcHR_^Vd6^ankKEg[m0X2
@@ -105,16 +105,16 @@ V3fcHR_^Vd6^ankKEg[m0X2
 R21
 33
 b1
-R29
+R22
 !i10b 1
-Z33 !s108 1523206528.000000
-Z34 !s90 -reportprogress|300|-2008|../src_tb/agent1_pkg.vhd|
-Z35 !s107 ../src_tb/agent1_pkg.vhd|
+R23
+Z32 !s90 -reportprogress|300|-2008|../src_tb/agent1_pkg.vhd|
+Z33 !s107 ../src_tb/agent1_pkg.vhd|
 !i113 0
 R26
 R27
 Bbody
-Z36 DPx4 work 10 agent1_pkg 0 22 3fcHR_^Vd6^ankKEg[m0X2
+Z34 DPx4 work 10 agent1_pkg 0 22 3fcHR_^Vd6^ankKEg[m0X2
 R0
 R3
 R1
@@ -131,60 +131,60 @@ R14
 R15
 R16
 33
-R29
+R22
 l0
 L53
-VPC`ML0A:cG?8jK4adAam?2
-!s100 TW:T4C0MdU2`XzORj`<432
+VDFglQ7OSV=L<9FM8heAje1
+!s100 jSkbWmZ0]T=ejdVjIbWX52
 R21
 !i10b 1
+R23
+R32
 R33
-R34
-R35
 !i113 0
 R26
 R27
 Efifo
-Z37 w1522998491
-Z38 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
-Z39 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
-Z40 DPx4 work 7 log_pkg 0 22 i;5XU[8^69@Ke]USkhaYb1
+Z35 w1522741863
+Z36 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z37 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z38 DPx4 work 7 log_pkg 0 22 i;5XU[8^69@Ke]USkhaYb1
 R14
 R15
 R16
 R18
-Z41 8../src/fifo.vhd
-Z42 F../src/fifo.vhd
+Z39 8../src/fifo.vhd
+Z40 F../src/fifo.vhd
 l0
 L34
 VgW14FB8g7JFjCGeLo?5=K2
 !s100 [7EDhMJZVJ<a:<LafaeAh3
 R21
 32
-R22
+Z41 !s110 1523267297
 !i10b 1
-R23
+Z42 !s108 1523267297.000000
 Z43 !s90 -reportprogress|300|../src/fifo.vhd|
 Z44 !s107 ../src/fifo.vhd|
 !i113 0
 R27
 Abehavioral
+R36
+R37
 R38
-R39
-R40
 R14
 R15
 R16
 Z45 DEx4 work 4 fifo 0 22 gW14FB8g7JFjCGeLo?5=K2
 32
-R22
+R41
 l78
 L59
 VbMYe^Icm6ej0gYDI`8H1P3
 !s100 MOZ^fWPL]Dcgk:<il=B<P3
 R21
 !i10b 1
-R23
+R42
 R43
 R44
 !i113 0
@@ -196,7 +196,7 @@ R16
 R3
 33
 !i109 2
-R22
+R41
 Z46 w1522224153
 R18
 Z47 8../src_tb/transaction_fifo_pkg.vhd
@@ -207,7 +207,7 @@ VK1H0bkOT]2kKNKoYn6l>62
 !s100 eiNkNfD^BN5X<;zdzMd[G2
 R21
 !i10b 1
-R23
+R42
 Z49 !s90 -reportprogress|300|-2008|../src_tb/transaction_fifo_pkg.vhd|
 Z50 !s107 ../src_tb/transaction_fifo_pkg.vhd|
 !i113 0
@@ -220,7 +220,7 @@ R16
 R3
 33
 !i109 2
-R22
+R41
 R46
 R18
 R47
@@ -231,15 +231,15 @@ V4>YFb60C]0YCFWUGnJNS00
 !s100 Z>g<d6Y2MT:CggfeHVmGm3
 R21
 !i10b 1
-R23
+R42
 R49
 R50
 !i113 0
 R26
 R27
 Plog_pkg
-R38
-R39
+R36
+R37
 R15
 R16
 Z51 w1521636485
@@ -253,30 +253,30 @@ Vi;5XU[8^69@Ke]USkhaYb1
 R21
 32
 b1
-R22
+R41
 !i10b 1
-Z54 !s108 1523206526.000000
-Z55 !s90 -reportprogress|300|../src/log_pkg.vhd|
-Z56 !s107 ../src/log_pkg.vhd|
+R42
+Z54 !s90 -reportprogress|300|../src/log_pkg.vhd|
+Z55 !s107 ../src/log_pkg.vhd|
 !i113 0
 R27
 Bbody
-R40
 R38
-R39
+R36
+R37
 R15
 R16
 32
-R22
+R41
 l0
 L35
 V?M7Ra49QJa^PYE]7o13f@2
 !s100 [6kBOV;N_:bkWOOQZShOI2
 R21
 !i10b 1
+R42
 R54
 R55
-R56
 !i113 0
 R27
 Poutput_transaction_fifo_pkg
@@ -286,7 +286,7 @@ R16
 R3
 33
 !i109 2
-R22
+R41
 R46
 R18
 R47
@@ -297,7 +297,7 @@ V8]UdC6o19P^IGJbo[4nZ73
 !s100 zdm=l[KhjW[bOdIFj2k[>3
 R21
 !i10b 1
-R23
+R42
 R49
 R50
 !i113 0
@@ -320,27 +320,27 @@ R13
 R14
 R15
 R16
-Z57 w1523205560
+Z56 w1523266567
 R18
-Z58 8../src_tb/scoreboard_pkg.vhd
-Z59 F../src_tb/scoreboard_pkg.vhd
+Z57 8../src_tb/scoreboard_pkg.vhd
+Z58 F../src_tb/scoreboard_pkg.vhd
 l0
 L39
-V6Q?PkISHhToSf0`i01M5;1
-!s100 S34>Y6Bm_J4PlM1H2l5L[2
+Vehz8k`?3M1jCLHkA5lL>]2
+!s100 lV4YzCDAW[[Nb@Pn?iJDI0
 R21
 33
 b1
-R29
+R22
 !i10b 1
-R33
-Z60 !s90 -reportprogress|300|-2008|../src_tb/scoreboard_pkg.vhd|
-Z61 !s107 ../src_tb/scoreboard_pkg.vhd|
+R23
+Z59 !s90 -reportprogress|300|-2008|../src_tb/scoreboard_pkg.vhd|
+Z60 !s107 ../src_tb/scoreboard_pkg.vhd|
 !i113 0
 R26
 R27
 Bbody
-Z62 DPx4 work 14 scoreboard_pkg 0 22 6Q?PkISHhToSf0`i01M5;1
+Z61 DPx4 work 14 scoreboard_pkg 0 22 ehz8k`?3M1jCLHkA5lL>]2
 R0
 R1
 R3
@@ -358,67 +358,67 @@ R14
 R15
 R16
 33
-R29
+R22
 l0
 L53
-VIOL[hN;=F308XWIF2BZB=1
-!s100 P6hj>GUFHY:U;]PcK@iIG2
+VT3HOU>;T2MJIS9G>b1V?M0
+!s100 k2F9Kh:T?RTRd^0]oQ:zD2
 R21
 !i10b 1
-R33
+R23
+R59
 R60
-R61
 !i113 0
 R26
 R27
 Espike_detection
-Z63 w1523023617
+Z62 w1523265648
 R14
 R15
 R16
 R18
-Z64 8../src/spike_detection.vhd
-Z65 F../src/spike_detection.vhd
+Z63 8../src/spike_detection.vhd
+Z64 F../src/spike_detection.vhd
 l0
-L37
-Vh=TV><:F6VXT>8?8_BEMI0
-!s100 n0eEbV4hF`2D=EHVdD;c@3
+L36
+VNJzo:Z;bCjZmLTQ=dEHiJ3
+!s100 Y8[I<jOS0A:Hh1ZEbffkb2
 R21
 32
-R22
+R41
 !i10b 1
-R23
-Z66 !s90 -reportprogress|300|../src/spike_detection.vhd|
-Z67 !s107 ../src/spike_detection.vhd|
+R42
+Z65 !s90 -reportprogress|300|../src/spike_detection.vhd|
+Z66 !s107 ../src/spike_detection.vhd|
 !i113 0
 R27
 Abehave
+R36
+R37
 R38
-R39
-R40
 R45
 R14
 R15
 R16
-DEx4 work 15 spike_detection 0 22 h=TV><:F6VXT>8?8_BEMI0
+DEx4 work 15 spike_detection 0 22 NJzo:Z;bCjZmLTQ=dEHiJ3
 32
-R22
-l112
-L59
-V]lzJMEM8cHiz91>Je5><40
-!s100 3jF6IOom@lFg^W4Sn=ZmT1
+R41
+l111
+L58
+Vf9Ej<VlQ4i9j6h5_TV@FV0
+!s100 PFSci?CaC9@oWzedUFYg13
 R21
 !i10b 1
-R23
+R42
+R65
 R66
-R67
 !i113 0
 R27
 Pspike_detection_pkg
 R15
 R16
 32
-!s110 1523206526
+R41
 w1521469729
 R18
 8../src/spike_detection_pkg.vhd
@@ -429,14 +429,14 @@ VkRMBG3?0AmhWfQUQMfDg12
 !s100 ehFbD=CF@?gO_VT7OPhK13
 R21
 !i10b 1
-R54
+!s108 1523267296.000000
 !s90 -reportprogress|300|../src/spike_detection_pkg.vhd|
 !s107 ../src/spike_detection_pkg.vhd|
 !i113 0
 R27
 Espike_detection_tb
-Z68 w1523178083
-R62
+Z67 w1523266736
+R61
 R28
 R1
 R2
@@ -444,7 +444,7 @@ R3
 R4
 R0
 R5
-Z69 DPx5 tlmvm 22 tlm_unbounded_fifo_pkg 0 22 UXl^jMdoYAe_fYSLAI4FZ2
+Z68 DPx5 tlmvm 22 tlm_unbounded_fifo_pkg 0 22 UXl^jMdoYAe_fYSLAI4FZ2
 R7
 R8
 R9
@@ -456,25 +456,25 @@ R14
 R15
 R16
 R18
-Z70 8../src_tb/spike_detection_tb.vhd
-Z71 F../src_tb/spike_detection_tb.vhd
+Z69 8../src_tb/spike_detection_tb.vhd
+Z70 F../src_tb/spike_detection_tb.vhd
 l0
 L45
 V^<:G6_@T;Jf:YZN?Yj<Nf2
 !s100 1c=6W>9Ak?;CBZQXcS^1o2
 R21
 33
-R29
+R22
 !i10b 1
-R33
-Z72 !s90 -reportprogress|300|-2008|../src_tb/spike_detection_tb.vhd|
-Z73 !s107 ../src_tb/spike_detection_tb.vhd|
+R23
+Z71 !s90 -reportprogress|300|-2008|../src_tb/spike_detection_tb.vhd|
+Z72 !s107 ../src_tb/spike_detection_tb.vhd|
 !i113 0
 R26
 R27
 Atestbench
-R36
-R62
+R34
+R61
 R28
 R1
 R2
@@ -482,7 +482,7 @@ R3
 R4
 R0
 R5
-R69
+R68
 R7
 R8
 R9
@@ -495,16 +495,16 @@ R15
 R16
 DEx4 work 18 spike_detection_tb 0 22 ^<:G6_@T;Jf:YZN?Yj<Nf2
 33
-R29
+R22
 l90
 L53
-VQMoCkeB<`:j7VIRe0:R130
-!s100 G:lXL0`obhaQ>6J2ZddBS3
+VdO?F6koYYe2:YbHKE^]ja1
+!s100 ^gD6cNAF[`k`O1<TE3j6W0
 R21
 !i10b 1
-R33
+R23
+R71
 R72
-R73
 !i113 0
 R26
 R27
@@ -512,8 +512,8 @@ Ptransactions_pkg
 R15
 R16
 33
-R22
-R37
+R41
+w1522998491
 R18
 8../src_tb/transactions_pkg.vhd
 F../src_tb/transactions_pkg.vhd
@@ -523,7 +523,7 @@ V^I=mRG9P0EniVO4[^HRZ63
 !s100 olV6gC=3fMLiiY@fE[nSW2
 R21
 !i10b 1
-R23
+R42
 !s90 -reportprogress|300|-2008|../src_tb/transactions_pkg.vhd|
 !s107 ../src_tb/transactions_pkg.vhd|
 !i113 0

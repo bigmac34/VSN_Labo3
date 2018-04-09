@@ -75,7 +75,7 @@ end package;
 package body agent0_pkg is
 
 	constant SAMPLING : time := 33 us;
-	constant NB_SAMPLES : integer := 1000;
+	constant NB_SAMPLES : integer := 10000;
 
 	-----------------
 	--  Sequencer  --
