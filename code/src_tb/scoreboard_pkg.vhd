@@ -91,11 +91,11 @@ package body scoreboard_pkg is
 		variable moving_average 								: signed(SIZE-1 downto 0);
 		variable sample_squared 								: signed(SIZE*2-1 downto 0);
 		variable sum_squared    								: signed(SIZE*2+LOG2_WINDOW_SIZE-1 downto 0);
-		variable moving_average_squared  				: signed(SIZE*2-1 downto 0);
-		variable standard_deviation_squared			: signed(SIZE*2-1 downto 0);
-		variable product_std_dev_factor_squared : signed(standard_deviation_squared'length + FACTOR_DETECTION'length - 1 downto 0);
-		variable deviation           						: signed(SIZE downto 0);  -- one extra bit
-		variable dev_squared         						: signed(deviation'length*2-1 downto 0);
+		variable moving_average_squared  						: signed(SIZE*2-1 downto 0);
+		variable standard_deviation_squared						: signed(SIZE*2-1 downto 0);
+		variable product_std_dev_factor_squared 				: signed(standard_deviation_squared'length + FACTOR_DETECTION'length - 1 downto 0);
+		variable deviation           							: signed(SIZE downto 0);  -- one extra bit
+		variable dev_squared         							: signed(deviation'length*2-1 downto 0);
 
 
 		begin
@@ -107,6 +107,7 @@ package body scoreboard_pkg is
 			same_window    := true;
 			moving_average := (others => '0');
 			sum_squared    := (others => '0');
+			sample_squared  := (others => '0');
 
 			for i in 0 to NB_SAMPLES-1 loop
 				-- Recieve the transactions
@@ -119,25 +120,47 @@ package body scoreboard_pkg is
 				same_window		:= true;
 				window_compare(index_put) := trans_input.sample;
 
+				--- Squared deviation
+				sample_squared     				:= signed(trans_input.sample) * signed(trans_input.sample);
+
 				-- On en calcul pas avant d'avoir 128 échantillons
-				if i >= AVERAGE then
-					--- Moyenne glissante
-					moving_average 					:= moving_average + signed(trans_input.sample(SIZE-1 downto DIV_128)) - moving_average(SIZE-1 downto DIV_128);
+				if i >= AVERAGE-1 then
+					-- --- Moyenne glissante
+					 moving_average 					:= moving_average + signed(trans_input.sample(SIZE-1 downto DIV_128)) - moving_average(SIZE-1 downto DIV_128);
+					--
+					-- --- Squared deviation
+					-- sample_squared     				:= signed(trans_input.sample) * signed(trans_input.sample);
+					 sum_squared  					:= sample_squared - sum_squared(SIZE*2+LOG2_WINDOW_SIZE-1 downto DIV_128) + sum_squared;
+					-- moving_average_squared  		:= moving_average * moving_average;
+					-- standard_deviation_squared 		:= sum_squared(SIZE*2+LOG2_WINDOW_SIZE-1 downto DIV_128) - moving_average_squared;
+					--
+					-- --- Calcul for the comparaison
+					-- product_std_dev_factor_squared 	:= standard_deviation_squared * FACTOR_DETECTION;
+					-- deviation                      	:= resize(signed(trans_input.sample), deviation'length) - resize(moving_average, deviation'length);
+					-- dev_squared                    	:= deviation * deviation;
+				else
+					sum_squared  					:= sample_squared + sum_squared;
+					moving_average 					:= moving_average + signed(trans_input.sample(SIZE-1 downto DIV_128));
 
-					--- Squared deviation
-					sample_squared     				:= signed(trans_input.sample) * signed(trans_input.sample);
-					sum_squared  					:= sample_squared - sum_squared(SIZE*2+LOG2_WINDOW_SIZE-1 downto DIV_128) + sum_squared;
-					moving_average_squared  		:= moving_average * moving_average;
-					standard_deviation_squared 		:= sum_squared(SIZE*2+LOG2_WINDOW_SIZE-1 downto DIV_128) - moving_average_squared;
-
-					--- Calcul for the comparaison
-					product_std_dev_factor_squared 	:= standard_deviation_squared * FACTOR_DETECTION;
-					deviation                      	:= resize(signed(trans_input.sample), deviation'length) - resize(moving_average, deviation'length);
-					dev_squared                    	:= deviation * deviation;
 				end if;
 
+				--- Moyenne glissante
+				--moving_average 					:= moving_average + signed(trans_input.sample(SIZE-1 downto DIV_128)) - moving_average(SIZE-1 downto DIV_128);
+
+			--sum_squared  					:= sample_squared - sum_squared(SIZE*2+LOG2_WINDOW_SIZE-1 downto DIV_128) + sum_squared;
+				moving_average_squared  		:= moving_average * moving_average;
+				standard_deviation_squared 		:= sum_squared(SIZE*2+LOG2_WINDOW_SIZE-1 downto DIV_128) - moving_average_squared;
+
+				--- Calcul for the comparaison
+				product_std_dev_factor_squared 	:= standard_deviation_squared * FACTOR_DETECTION;
+				deviation                      	:= resize(signed(trans_input.sample), deviation'length) - resize(moving_average, deviation'length);
+				dev_squared                    	:= deviation * deviation;
+
+
+
 				if dev_squared > product_std_dev_factor_squared then
-					end_window_150 := (index_put + WINDOW_SIZE - 1) mod 200;
+					end_window_150 := (index_put + WINDOW_SIZE - 1) mod 199;
+					--report "###### Scoreboard comparaison for spike " &  integer'image(to_integer(dev_squared)) & " > " & integer'image(to_integer(product_std_dev_factor_squared)) & "             SCOREBOARD at time " & time'image(now);
 				end if;
 
 				if index_put = end_window_150 then
@@ -158,19 +181,19 @@ package body scoreboard_pkg is
 						report "La fenetre ne possede pas les bons echantillions --- In scoreboard" severity error;
 					end if;
 				elsif ok and not spike_expected then
-					report "On a recu un spike alors qu'il n'y en a pas   --------- In scoreboard" severity error;
+					report "On a recu un spike alors qu'il n'y en a pas   --------- In scoreboard ---------" severity error;
 				elsif not ok and spike_expected then
-					report "On devait avoir un spike mais il n'y en a pas eu------- In scoreboard" severity error;
+					report "On devait avoir un spike mais il n'y en a pas eu------- In scoreboard ---------" severity error;
 				else
 					--do nothing : pas de spike attendu, pas de spike reçu
 				end if;
 
 				----------
 				counter := counter + 1;
-				if index_put >= 199 - 1 then
+				index_put := index_put + 1;
+
+				if index_put > (199 - 1) then
 					index_put := 0;
-				else
-					index_put := index_put + 1;
 				end if;
 
 			end loop;
