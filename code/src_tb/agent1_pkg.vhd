@@ -61,7 +61,6 @@ package body agent1_pkg is
         signal port_output : in port1_output_t
     ) is
         variable transaction : output_transaction_t;
-        variable counter : integer;
         variable index   : integer;
         variable ok : boolean;
 
@@ -69,17 +68,11 @@ package body agent1_pkg is
 
     begin
 
---      samples_spikes_o       => port1_output_obs.samples_spikes,
---      samples_spikes_valid_o => port1_output_obs.samples_spikes_valid,
---      spike_detected_o       => port1_output_obs.spike_detected
-
-        counter := 0;
         while (not no_objection) loop
             ok := false;
             index := 0;
             while (not ok) loop
                 wait until rising_edge(clk);
-				--wait until rising_edge(port_output.samples_spikes_valid);
 
                 if (port_output.samples_spikes_valid = '1') then
                     transaction.samples_window(index) := port_output.samples_spikes;
@@ -88,15 +81,12 @@ package body agent1_pkg is
 					index := index + 1;
                 end if;
                 if (port_output.spike_detected = '1') then
-					--transaction.samples_window(0) := port_output.samples_spikes;
-					--report "-------------Monitor1 : Sent transaction number " & integer'image(0) severity note;
 
                     ok := true;
                 end if;
             end loop;
 			--report "-------------Monitor1 : Sent transaction number " & integer'image(index) severity note;
             blocking_put(fifo, transaction);
-            counter := counter + 1;
         end loop;
 
         wait;

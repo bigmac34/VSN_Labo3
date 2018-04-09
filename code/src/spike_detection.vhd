@@ -6,13 +6,13 @@
 -- Description  : This architecture is used to detect and extract a window that
 --                contain a neural spike. NOTE : due to some generics this
 --                version is probably unsynthetizable but will be used in a
---                verification course so it is not a problem 
+--                verification course so it is not a problem
 --
 -- Author       : Mike Meury
 -- Date         : 20.03.2018
 -- Version      : 1.0
 --
--- Dependencies : 
+-- Dependencies :
 --
 --| Modifications |------------------------------------------------------------
 -- Version   Author Date               Description
@@ -211,6 +211,13 @@ begin  -- behave
     spike_s                        <= '1' when (dev_squared_s > product_std_dev_factor_squared) and sample_valid_i = '1' and det_ready_s = '1' else
                '0';
 
+    process(spike_s)
+	begin
+		if(rising_edge(spike_s)) then
+			--report "###### DUV comparaison for spike " &  integer'image(to_integer(dev_squared_s)) & " > " & integer'image(to_integer(product_std_dev_factor_squared)) & "            DUV at time " & time'image(now);
+		end if;
+	end process;
+
     --------------------------------
     -- Counter for detector ready --
     --------------------------------
@@ -231,7 +238,7 @@ begin  -- behave
     --------------------
     -- Detector ready --
     --------------------
-    det_ready_s <= '1' when (((counter_sample_s = WINDOW_SIZE) and (ERRNO /= 12)) or ERRNO = 9) else
+    det_ready_s <= '1' when (((counter_sample_s >= WINDOW_SIZE) and (ERRNO /= 12)) or ERRNO = 9) else
                    '0';
 
     ------------------
