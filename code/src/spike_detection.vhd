@@ -175,6 +175,8 @@ begin  -- behave
                 else
                     moving_average_s <= moving_average_s + (sample_s(15 downto 7) - moving_average_s(15 downto 7));
                 end if;
+				--report "###### DUV moving_average" &  integer'image(to_integer(moving_average_s)) & "            DUV at time " & time'image(now);
+
             end if;
         end if;
     end process;
@@ -193,6 +195,17 @@ begin  -- behave
                 else
                     sum_squared_s <= sample_squared_s + sum_squared_s;
                 end if;
+				--report "###### DUT dev_squared " &  integer'image(to_integer(sum_squared_s)) & "            DUV at time " & time'image(now);
+				--report "###### DUT deviation " &  integer'image(to_integer(deviation_s)) & "            DUV at time " & time'image(now);
+				--report "###### DUT sample " &  integer'image(to_integer(sample_s)) & "            DUV at time " & time'image(now);
+				-- report "###### DUT counter " & integer'image(to_integer(counter_sample_s)) & "            DUV at time " & time'image(now);
+				--report "###### SRB sum_squared " &  integer'image(to_integer(sum_squared)) & "            DUV at time " & time'image(now);
+				--report "###### DUT moving_average " &  integer'image(to_integer(moving_average_s)) & "            DUV at time " & time'image(now);
+				-- report "###### DUT sample " &  integer'image(to_integer(sample_s)) & "            DUV at time " & time'image(now);
+				-- report "###### DUT deviation " &  integer'image(to_integer(deviation_s)) & "            DUV at time " & time'image(now);
+				--report "###### DUT dev_squared " &  integer'image(to_integer(dev_squared_s)) & "            DUV at time " & time'image(now);
+				--report "###### DUV comparaison for spike " &  integer'image(to_integer(dev_squared_s)) & " > " & integer'image(to_integer(product_std_dev_factor_squared)) & "            DUV at time " & time'image(now);
+
             end if;
         end if;
     end process;
@@ -210,6 +223,7 @@ begin  -- behave
     dev_squared_s                  <= deviation_s * deviation_s;
     spike_s                        <= '1' when (dev_squared_s > product_std_dev_factor_squared) and sample_valid_i = '1' and det_ready_s = '1' else
                '0';
+
 
     process(spike_s)
 	begin
