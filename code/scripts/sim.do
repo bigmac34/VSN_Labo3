@@ -22,10 +22,12 @@ proc compile_tb { } {
 
   vcom -2008 $Path_TB/transactions_pkg.vhd
   vcom -2008 $Path_TB/transaction_fifo_pkg.vhd
+  vcom -2008 $Path_TB/constant_pkg.vhd
   vcom -2008 $Path_TB/agent0_pkg.vhd
   vcom -2008 $Path_TB/agent1_pkg.vhd
   vcom -2008 $Path_TB/scoreboard_pkg.vhd
   vcom -2008 $Path_TB/spike_detection_tb.vhd
+
 }
 
 #------------------------------------------------------------------------------

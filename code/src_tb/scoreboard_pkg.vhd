@@ -32,18 +32,27 @@ use work.input_transaction_fifo_pkg.all;
 use work.output_transaction_fifo_pkg.all;
 use work.transactions_pkg.all;
 use work.spike_detection_pkg.all;
+use work.constant_pkg.all;
 
 ---------------
 --  Package  --
 ---------------
 package scoreboard_pkg is
+	
+	constant SAMPLE_SIZE 	: integer := 16;
+	constant TIME_TO_NEXT	: time := 50 ns;
+	constant WINDOW_SIZE 	: integer := 150;
+	constant NB_SAMPLES 	: integer := 10000;
+	constant N_AVERAGE      : integer := 128;
+	constant POSITION		: integer := 50;
+	constant BUFFER_SIZE	: integer := (WINDOW_SIZE + POSITION - 1);
 
 	-- Scoreboard
 	procedure scoreboard(variable fifo_input  : inout work.input_transaction_fifo_pkg.tlm_fifo_type;
 	variable fifo_output : inout work.output_transaction_fifo_pkg.tlm_fifo_type
 	);
 
-	type window_comp is array (199-1 downto 0) of std_logic_vector(16-1 downto 0);
+	type window_buffer is array (BUFFER_SIZE-1 downto 0) of std_logic_vector(16-1 downto 0);
 
 end package;
 
@@ -52,7 +61,6 @@ end package;
 --------------------
 package body scoreboard_pkg is
 
-	constant NB_SAMPLES : integer := 10000;
 
 	------------------
 	--  Scoreboard  --
@@ -60,9 +68,7 @@ package body scoreboard_pkg is
 	procedure scoreboard(variable fifo_input  : inout work.input_transaction_fifo_pkg.tlm_fifo_type;
 						 variable fifo_output : inout work.output_transaction_fifo_pkg.tlm_fifo_type
 	) is
-		constant SIZE             : integer := 16;
-		constant LOG2_WINDOW_SIZE : integer := 7;
-		constant DIV_128					: integer := 7;
+		constant N_DIV_128 : integer := 7;
 
 		variable trans_input  : input_transaction_t;
 		variable trans_output : output_transaction_t;
@@ -73,29 +79,23 @@ package body scoreboard_pkg is
 		variable flag		: boolean;
 
 		-- For the spike detection
-		variable window_compare   : window_comp;
+		variable buffer_window   : window_buffer;
 		variable index_put        : integer;
 		variable end_window_150   : integer;
-
-		--    variable spike_detected   : boolean;
 		variable spike_expected   : boolean;
 		variable same_window      : boolean;
 
-		constant WINDOW_SIZE  : integer := 150;
-		constant POSITION     : integer := 50;
-		constant N_AFTER      : integer := (WINDOW_SIZE - POSITION);
-		constant AVERAGE      : integer := 128;
-
-		constant FACTOR_DETECTION : signed(15 downto 0) := to_signed(15, 16);
+		constant FACTOR_SIZE	  : integer := 16;
+		constant FACTOR_DETECTION : signed(FACTOR_SIZE-1 downto 0) := to_signed(15, FACTOR_SIZE);
 
 		-- Moyenne glissante
-		variable moving_average 								: signed(SIZE-1 downto 0);
-		variable sample_squared 								: signed(SIZE*2-1 downto 0);
-		variable sum_squared    								: signed(SIZE*2+LOG2_WINDOW_SIZE-1 downto 0);
-		variable moving_average_squared  						: signed(SIZE*2-1 downto 0);
-		variable standard_deviation_squared						: signed(SIZE*2-1 downto 0);
+		variable moving_average 								: signed(SAMPLE_SIZE-1 downto 0);
+		variable sample_squared 								: signed(SAMPLE_SIZE*2-1 downto 0);
+		variable sum_squared    								: signed(SAMPLE_SIZE*2+N_DIV_128-1 downto 0);
+		variable moving_average_squared  						: signed(SAMPLE_SIZE*2-1 downto 0);
+		variable standard_deviation_squared						: signed(SAMPLE_SIZE*2-1 downto 0);
 		variable product_std_dev_factor_squared 				: signed(standard_deviation_squared'length + FACTOR_DETECTION'length - 1 downto 0);
-		variable deviation           							: signed(SIZE downto 0);  -- one extra bit
+		variable deviation           							: signed(SAMPLE_SIZE downto 0);  -- one extra bit
 		variable dev_squared         							: signed(deviation'length*2-1 downto 0);
 
 
@@ -112,7 +112,7 @@ package body scoreboard_pkg is
 			sum_squared    := (others => '0');
 			sample_squared  := (others => '0');
 
-			end_window_150 := 300;
+			end_window_150 := 300; -- En dehors de 200 pour pas taper dans le buffer
 
 			for i in 0 to NB_SAMPLES-1 loop
 				-- Recieve the transactions
@@ -123,53 +123,37 @@ package body scoreboard_pkg is
 				--------------------------- detection ----------------------
 				spike_expected := false;
 				same_window		:= true;
-				window_compare(index_put) := trans_input.sample;
+				buffer_window(index_put) := trans_input.sample;
+
 
 				--- Squared deviation
 				sample_squared     				:= signed(trans_input.sample) * signed(trans_input.sample);
-
 				moving_average_squared  		:= moving_average * moving_average;
-				standard_deviation_squared 		:= sum_squared(SIZE*2+LOG2_WINDOW_SIZE-1 downto DIV_128) - moving_average_squared;
+				standard_deviation_squared 		:= sum_squared(SAMPLE_SIZE*2+N_DIV_128-1 downto N_DIV_128) - moving_average_squared;
 
 				--- Calcul for the comparaison
 				product_std_dev_factor_squared 	:= standard_deviation_squared * FACTOR_DETECTION;
-				--deviation                     := resize(signed(trans_input.sample), deviation'length) - resize(moving_average, deviation'length);
-				deviation                    	:= resize(signed(trans_input.sample), deviation'length) - resize(moving_average, deviation'length);
 
+				deviation                    	:= resize(signed(trans_input.sample), deviation'length) - resize(moving_average, deviation'length);
 				dev_squared                    	:= deviation * deviation;
 
-				-- On en calcul pas avant d'avoir 128 échantillons
-				if i >= AVERAGE-1 then
-					-- --- Moyenne glissante
-					 moving_average 				:= moving_average + signed(trans_input.sample(SIZE-1 downto DIV_128)) - moving_average(SIZE-1 downto DIV_128);
-					 sum_squared  					:= sample_squared - sum_squared(SIZE*2+LOG2_WINDOW_SIZE-1 downto DIV_128) + sum_squared;
+				-- On ne calcul pas avant d'avoir 128 échantillons
+				if i >= N_AVERAGE-1 then
+					-- Moyenne glissante
+					 moving_average 				:= moving_average + signed(trans_input.sample(SAMPLE_SIZE-1 downto N_DIV_128)) - moving_average(SAMPLE_SIZE-1 downto N_DIV_128);
+					 -- Carré de la somme
+					 sum_squared  					:= sample_squared - sum_squared(SAMPLE_SIZE*2+N_DIV_128-1 downto N_DIV_128) + sum_squared;
 
 				else
-					moving_average 					:= moving_average + signed(trans_input.sample(SIZE-1 downto DIV_128));
+					moving_average 					:= moving_average + signed(trans_input.sample(SAMPLE_SIZE-1 downto N_DIV_128));
 					sum_squared  					:= sample_squared + sum_squared;
 
 				end if;
 
-				--report "###### SRB moving_average" &  integer'image(to_integer(moving_average)) & "            DUV at time " & time'image(now);
 
-				--- Moyenne glissante
-				--moving_average 					:= moving_average + signed(trans_input.sample(SIZE-1 downto DIV_128)) - moving_average(SIZE-1 downto DIV_128);
-
-			--sum_squared  						:= sample_squared - sum_squared(SIZE*2+LOG2_WINDOW_SIZE-1 downto DIV_128) + sum_squared;
-
-
-				--report "###### SRB sum_squared " &  integer'image(to_integer(sum_squared)) & "            DUV at time " & time'image(now);
-				-- report "###### SRB moving_average " &  integer'image(to_integer(moving_average)) & "            DUV at time " & time'image(now);
-				-- report "###### SRB sample " &  integer'image(to_integer(signed(trans_input.sample))) & "            DUV at time " & time'image(now);
-				-- report "###### SRB deviation " &  integer'image(to_integer(deviation)) & "            DUV at time " & time'image(now);
-				--report "###### SRB dev_squared " &  integer'image(to_integer(dev_squared)) & "            DUV at time " & time'image(now);
-				--report "###### SRB comparaison for spike " &  integer'image(to_integer(dev_squared)) & " > " & integer'image(to_integer(product_std_dev_factor_squared)) & "             SCOREBOARD at time " & time'image(now);
-
-				if (dev_squared > product_std_dev_factor_squared) and (i >= AVERAGE-1) and flag = false then
-					end_window_150 := (index_put + WINDOW_SIZE - 1) mod 199;
+				if (dev_squared > product_std_dev_factor_squared) and (i >= N_AVERAGE-1) and flag = false then
+					end_window_150 := (index_put + WINDOW_SIZE - 1) mod BUFFER_SIZE;
 					flag := true;
-				else
-					--report "###### Scoreboard comparaison for spike " &  integer'image(to_integer(dev_squared)) & " > " & integer'image(to_integer(product_std_dev_factor_squared)) & "             SCOREBOARD at time " & time'image(now);
 				end if;
 
 				if index_put = end_window_150 then
@@ -181,13 +165,11 @@ package body scoreboard_pkg is
 				----------------- Check case ------------------------------------------
 				if ok and spike_expected then
 					report "On a recu un spike au bon moment              --------- In scoreboard" severity note;
-					--report "dev_squared: " & integer'image(to_integer(dev_squared)) & "     " & "product_std_dev_factor_squared:  " & integer'image(to_integer(product_std_dev_factor_squared));
 
 					for j in index_put to index_put + WINDOW_SIZE - 1 loop
-						--report "J:" & integer'image(j) & "    " & integer'image(to_integer(unsigned(window_compare((j+201) mod 200)))) & "/=" & integer'image(to_integer(unsigned(trans_output.samples_window(j-index_put))));
-						if window_compare((j+200) mod 199) /= trans_output.samples_window(j-index_put) then
+						if buffer_window((j+BUFFER_SIZE+1) mod BUFFER_SIZE) /= trans_output.samples_window(j-index_put) then
 							same_window := false;
-							report "----------------------- Faux a: J=" & integer'image(j-index_put) & "    " & integer'image(to_integer(unsigned(window_compare((j+200) mod 199)))) & "/=" & integer'image(to_integer(unsigned(trans_output.samples_window(j-index_put))));
+							-- report "----------------------- Faux a: J=" & integer'image(j-index_put) & "    " & integer'image(to_integer(unsigned(buffer_window((j+BUFFER_SIZE+1) mod BUFFER_SIZE)))) & "/=" & integer'image(to_integer(unsigned(trans_output.samples_window(j-index_put))));
 						end if;
 					end loop;
 					if not same_window then
@@ -195,7 +177,6 @@ package body scoreboard_pkg is
 					end if;
 				elsif ok and not spike_expected then
 					report "On a recu un spike alors qu'il n'y en a pas   --------- In scoreboard ---------" severity error;
-					--report "dev_squared: " & integer'image(to_integer(dev_squared)) & "     " & "product_std_dev_factor_squared:  " & integer'image(to_integer(product_std_dev_factor_squared));
 				elsif not ok and spike_expected then
 					report "On devait avoir un spike mais il n'y en a pas eu------- In scoreboard ---------" severity error;
 				else
@@ -206,7 +187,7 @@ package body scoreboard_pkg is
 				counter := counter + 1;
 				index_put := index_put + 1;
 
-				if index_put > (199 - 1) then
+				if index_put > (BUFFER_SIZE - 1) then
 					index_put := 0;
 				end if;
 
