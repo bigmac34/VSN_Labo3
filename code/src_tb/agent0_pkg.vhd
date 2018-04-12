@@ -41,6 +41,7 @@ use work.input_transaction_fifo1_pkg.all;
 use work.output_transaction_fifo_pkg.all;
 use work.transactions_pkg.all;
 use work.spike_detection_pkg.all;
+use work.constant_pkg.all;
 
 ---------------
 --  Package  --
@@ -75,7 +76,6 @@ end package;
 package body agent0_pkg is
 
 	constant SAMPLING : time := 33 us;
-	constant NB_SAMPLES : integer := 10000;
 
 	-----------------
 	--  Sequencer  --
@@ -116,8 +116,8 @@ package body agent0_pkg is
 	                transaction.time_next := SAMPLING;
 
 	                blocking_put(fifo, transaction);
-	                wait for SAMPLING;
 	                --report "Sequencer : Sent transaction number " & integer'image(counter) severity note;
+	                wait for SAMPLING;
 	                counter := counter + 1;
 	            end loop;
 
@@ -137,10 +137,8 @@ package body agent0_pkg is
 					end if;
 
 	                transaction.time_next := SAMPLING;
-					--wait until rising_edge(clk);
-					--wait for 20 ns;			-- Je sais pas trop pourquoi
 
-					--report " --------------------------Sequencer : Sent transaction number " & integer'image(counter) severity note;
+					--report " Sequencer : Sent transaction number " & integer'image(counter) severity note;
 	                blocking_put(fifo, transaction);
 	                wait for SAMPLING;
 	                counter := counter + 1;
@@ -175,18 +173,14 @@ package body agent0_pkg is
         counter := 0;
 
         for i in 0 to NB_SAMPLES-1 loop
-			--wait until rising_edge(clk);
             --report " --------------------------Driver waiting for transaction number " & integer'image(counter) severity note;
             blocking_get(fifo, transaction);
             --report " --------------------------Driver received transaction number " & integer'image(counter) severity note;
             wait until rising_edge(clk);
             -- TODO : Act on the DUV
-            --if (rst = '0') AND (port_output.ready = '1') then
 			if  (port_output.ready = '1') then
-			--wait until (rst = '0') AND (port_output.ready = '1');
               	port_input.sample <= transaction.sample;
               	port_input.sample_valid <= '1';
-		  	--end if;
             	wait until rising_edge(clk);
             	port_input.sample_valid <= '0';
 			end if;
@@ -216,18 +210,16 @@ package body agent0_pkg is
     begin
 
         counter := 0;
-        --for i in 0 to 100000-1 loop
+
 		while (not no_objection) loop
             ok := false;
             while (not ok) loop
                 wait until rising_edge(clk);
                 -- TODO : Retrieve data and create a transaction
                 if (port_input.sample_valid = '1') then -- AND (port_output.ready = '1') then
-				--wait until falling_edge(port_input.sample_valid) AND (port_output.ready = '1');
-					--wait until rising_edge(clk);
 					transaction.sample := port_input.sample;
 					transaction.time_next := SAMPLING;
-					--report " --------------------------Monitor send transaction number " & integer'image(counter) severity note;
+					--report " Monitor0 send transaction number " & integer'image(counter) severity note;
                     blocking_put(fifo, transaction);
                     counter := counter + 1;
                     ok := true;
@@ -235,7 +227,6 @@ package body agent0_pkg is
                 end if;
             end loop;
 		end loop;
-        --end loop;
 
         wait;
 
