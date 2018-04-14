@@ -57,6 +57,9 @@ package body logger_pkg is
 
     type logger_t is protected body
 
+		----------------
+		--  Variables --
+		----------------
         variable nb_errors : integer := 0;
 		variable nb_warning : integer := 0; -- ajout
         variable L: line;

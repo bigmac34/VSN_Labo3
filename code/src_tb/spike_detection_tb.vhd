@@ -91,9 +91,11 @@ architecture testbench of spike_detection_tb is
 		report "Simulation finished, see logger at /comp/" & FICHIER_LOG  & "_ERRNO_" &  integer'image(ERRNO) & ".txt";
   	end rep;
 
+	-----------------------------
+	-- Initialisation du logger -
+	-----------------------------
 	procedure start is
   	begin
-		-- Ajout du logger
 	   logger.log_fichier_init(FICHIER_LOG & "_ERRNO_" & integer'image(ERRNO) & ".txt");
 	   logger.set_verbosity(note);
 	   logger.log_note("--------  ERRNO: " & integer'image(ERRNO) & " & " & "TESTCASE: " & integer'image(TESTCASE) & "  --------");
