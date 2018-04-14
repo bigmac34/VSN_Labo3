@@ -11,3 +11,136 @@
 # //  is prohibited from disclosure under the Trade Secrets Act,
 # //  18 U.S.C. Section 1905.
 # //
+# /opt/mentor/questasim/questasim/linux_x86_64/vrun -mseed 0 directed
+# // Questa Verification Run Manager 10.5c_2 Oct 17 2016 
+# //
+# //  Copyright 1991-2016 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  Questa Verification Run Manager and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Run Monitor daemon listening on '46225@localhost'...
+# RegressionStarting: Regression started at Sat Apr 14 15:10:18 2018
+# ActionStarted:   Action 'directed/dirtest0/execScript' has started at Sat Apr 14 15:10:22 2018
+# ActionStarted:   Action 'directed/dirtest1/execScript' has started at Sat Apr 14 15:10:23 2018
+# ActionStarted:   Action 'directed/dirtest5/execScript' has started at Sat Apr 14 15:10:24 2018
+# ActionStarted:   Action 'directed/dirtest3/execScript' has started at Sat Apr 14 15:10:24 2018
+# ActionStarted:   Action 'directed/dirtest2/execScript' has started at Sat Apr 14 15:10:24 2018
+# ActionStarted:   Action 'directed/dirtest6/execScript' has started at Sat Apr 14 15:10:24 2018
+# ActionStarted:   Action 'directed/dirtest8/execScript' has started at Sat Apr 14 15:10:25 2018
+# ActionStarted:   Action 'directed/dirtest11/execScript' has started at Sat Apr 14 15:10:25 2018
+# ActionStarted:   Action 'directed/dirtest4/execScript' has started at Sat Apr 14 15:10:25 2018
+# ActionStarted:   Action 'directed/dirtest12/execScript' has started at Sat Apr 14 15:10:25 2018
+# ActionStarted:   Action 'directed/dirtest16/execScript' has started at Sat Apr 14 15:10:25 2018
+# ActionStarted:   Action 'directed/dirtest13/execScript' has started at Sat Apr 14 15:10:25 2018
+# ActionStarted:   Action 'directed/dirtest15/execScript' has started at Sat Apr 14 15:10:25 2018
+# ActionStarted:   Action 'directed/dirtest9/execScript' has started at Sat Apr 14 15:10:26 2018
+# ActionStarted:   Action 'directed/dirtest14/execScript' has started at Sat Apr 14 15:10:26 2018
+# ActionStarted:   Action 'directed/dirtest7/execScript' has started at Sat Apr 14 15:10:27 2018
+# ActionStarted:   Action 'directed/dirtest10/execScript' has started at Sat Apr 14 15:10:35 2018
+# Error: Action 'directed/dirtest0/execScript' failed (failed/script, status: 1):
+#   message: 'Runtime error'
+#   details: UCDB status is 'UCDB Error'
+#   logfile: /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/VRMDATA/directed/dirtest0/execScript.log
+# ActionCompleted: Action 'directed/dirtest0/execScript' failed at Sat Apr 14 15:10:36 2018
+# Error: Action 'directed/dirtest1/execScript' failed (failed/script, status: 1):
+#   message: 'Runtime error'
+#   details: UCDB status is 'UCDB Error'
+#   logfile: /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/VRMDATA/directed/dirtest1/execScript.log
+# ActionCompleted: Action 'directed/dirtest1/execScript' failed at Sat Apr 14 15:10:40 2018
+# Error: Action 'directed/dirtest5/execScript' failed (failed/script, status: 1):
+#   message: 'Runtime error'
+#   details: UCDB status is 'UCDB Error'
+#   logfile: /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/VRMDATA/directed/dirtest5/execScript.log
+# ActionCompleted: Action 'directed/dirtest5/execScript' failed at Sat Apr 14 15:10:41 2018
+# Error: Action 'directed/dirtest3/execScript' failed (failed/script, status: 1):
+#   message: 'Runtime error'
+#   details: UCDB status is 'UCDB Error'
+#   logfile: /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/VRMDATA/directed/dirtest3/execScript.log
+# ActionCompleted: Action 'directed/dirtest3/execScript' failed at Sat Apr 14 15:10:42 2018
+# Error: Action 'directed/dirtest16/execScript' failed (failed/script, status: 1):
+#   message: 'Elaboration error'
+#   details: UCDB status is 'UCDB Error'
+#   logfile: /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/VRMDATA/directed/dirtest16/execScript.log
+# ActionCompleted: Action 'directed/dirtest16/execScript' failed at Sat Apr 14 15:10:43 2018
+# Error: Action 'directed/dirtest6/execScript' failed (failed/script, status: 1):
+#   message: 'Runtime error'
+#   details: UCDB status is 'UCDB Error'
+#   logfile: /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/VRMDATA/directed/dirtest6/execScript.log
+# ActionCompleted: Action 'directed/dirtest6/execScript' failed at Sat Apr 14 15:10:43 2018
+# Error: Action 'directed/dirtest2/execScript' failed (failed/script, status: 1):
+#   message: 'Runtime error'
+#   details: UCDB status is 'UCDB Error'
+#   logfile: /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/VRMDATA/directed/dirtest2/execScript.log
+# ActionCompleted: Action 'directed/dirtest2/execScript' failed at Sat Apr 14 15:10:43 2018
+# Error: Action 'directed/dirtest8/execScript' failed (failed/script, status: 1):
+#   message: 'Runtime error'
+#   details: UCDB status is 'UCDB Error'
+#   logfile: /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/VRMDATA/directed/dirtest8/execScript.log
+# ActionCompleted: Action 'directed/dirtest8/execScript' failed at Sat Apr 14 15:10:43 2018
+# Error: Action 'directed/dirtest7/execScript' failed (failed/script, status: 1):
+#   message: 'Runtime error'
+#   details: UCDB status is 'UCDB Error'
+#   logfile: /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/VRMDATA/directed/dirtest7/execScript.log
+# ActionCompleted: Action 'directed/dirtest7/execScript' failed at Sat Apr 14 15:10:43 2018
+# Error: Action 'directed/dirtest4/execScript' failed (failed/script, status: 1):
+#   message: 'Runtime error'
+#   details: UCDB status is 'UCDB Error'
+#   logfile: /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/VRMDATA/directed/dirtest4/execScript.log
+# ActionCompleted: Action 'directed/dirtest4/execScript' failed at Sat Apr 14 15:10:44 2018
+# Error: Action 'directed/dirtest12/execScript' failed (failed/script, status: 1):
+#   message: 'Runtime error'
+#   details: UCDB status is 'UCDB Error'
+#   logfile: /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/VRMDATA/directed/dirtest12/execScript.log
+# ActionCompleted: Action 'directed/dirtest12/execScript' failed at Sat Apr 14 15:10:44 2018
+# Error: Action 'directed/dirtest13/execScript' failed (failed/script, status: 1):
+#   message: 'Runtime error'
+#   details: UCDB status is 'UCDB Error'
+#   logfile: /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/VRMDATA/directed/dirtest13/execScript.log
+# ActionCompleted: Action 'directed/dirtest13/execScript' failed at Sat Apr 14 15:10:44 2018
+# Error: Action 'directed/dirtest15/execScript' failed (failed/script, status: 1):
+#   message: 'Runtime error'
+#   details: UCDB status is 'UCDB Error'
+#   logfile: /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/VRMDATA/directed/dirtest15/execScript.log
+# ActionCompleted: Action 'directed/dirtest15/execScript' failed at Sat Apr 14 15:10:44 2018
+# Error: Action 'directed/dirtest9/execScript' failed (failed/script, status: 1):
+#   message: 'Runtime error'
+#   details: UCDB status is 'UCDB Error'
+#   logfile: /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/VRMDATA/directed/dirtest9/execScript.log
+# ActionCompleted: Action 'directed/dirtest9/execScript' failed at Sat Apr 14 15:10:44 2018
+# Error: Action 'directed/dirtest14/execScript' failed (failed/script, status: 1):
+#   message: 'Runtime error'
+#   details: UCDB status is 'UCDB Error'
+#   logfile: /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/VRMDATA/directed/dirtest14/execScript.log
+# ActionCompleted: Action 'directed/dirtest14/execScript' failed at Sat Apr 14 15:10:44 2018
+# Error: Action 'directed/dirtest11/execScript' failed (failed/script, status: 1):
+#   message: 'Runtime error'
+#   details: UCDB status is 'UCDB Error'
+#   logfile: /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/VRMDATA/directed/dirtest11/execScript.log
+# ActionCompleted: Action 'directed/dirtest11/execScript' failed at Sat Apr 14 15:10:44 2018
+# Error: Action 'directed/dirtest10/execScript' failed (failed/script, status: 1):
+#   message: 'Runtime error'
+#   details: UCDB status is 'UCDB Error'
+#   logfile: /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/VRMDATA/directed/dirtest10/execScript.log
+# ActionCompleted: Action 'directed/dirtest10/execScript' failed at Sat Apr 14 15:10:53 2018
+# Action script execution status:
+#   Total 17 scripts prepared: 17 OK, 0 failed
+#   Total 17 scripts launched: 17 OK, 0 failed
+#   Total 17 scripts finished: 0 OK, 17 failed
+# Action script completion status:
+#   Total 17 execScript actions: 17 failed
+#   Total  1 postScript actions: 1 empty
+#   Total  1  preScript actions: 1 empty
+# Action script pass/fail status:
+#   Passed          0    
+#   Failed          17   
+#   TOTAL           17   
+# RegressionCompleted: Regression finished at Sat Apr 14 15:10:58 2018
+# VRM total elapsed time: 0m:40s
+# 

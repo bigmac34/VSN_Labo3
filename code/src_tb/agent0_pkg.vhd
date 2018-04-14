@@ -23,6 +23,7 @@
 -- Ver   Date        	Person     			Comments
 -- 1.0	 28.03.2018		Jérémie Macchi		Mise en place
 -- 1.1	 06.04.2018		Vivien Kaltenrieder	Réalisation séquenceur et moniteur
+-- 1.2	 14.04.2018		Jérémie Macchi		Finalisation du projet
 --------------------------------------------------------------------------------
 ----------------
 -- Librairies --
@@ -105,15 +106,18 @@ package body agent0_pkg is
 				-- open source file
 				file_open(input_file_f, INPUT_FILE_NAME, read_mode);
 
+				transaction.time_next := SAMPLING;
+
 	            for i in 0 to NB_SAMPLES-1 loop
+
+					beat;
+
 					-- Read line in file
 					readline(input_file_f, input_line_v);
 
 					-- Extract value
 					read(input_line_v, value_v);
 	            	transaction.sample := std_logic_vector(to_signed(value_v,16));
-
-	                transaction.time_next := SAMPLING;
 
 	                blocking_put(fifo, transaction);
 	                --report "Sequencer : Sent transaction number " & integer'image(counter) severity note;
@@ -123,7 +127,13 @@ package body agent0_pkg is
 
 			-- Test avec des spikes tout les 200 echantillons --
             when 1 =>
+
+				transaction.time_next := SAMPLING;
+
 	            for i in 0 to NB_SAMPLES-1 loop
+
+					beat;
+
 					-- Valeur de base
 					val_mod := (i mod 200);
 					if val_mod /= 0 OR i < 200  then
@@ -135,8 +145,6 @@ package body agent0_pkg is
 					else
 						transaction.sample := std_logic_vector(to_signed(1850,16));
 					end if;
-
-	                transaction.time_next := SAMPLING;
 
 					--report " Sequencer : Sent transaction number " & integer'image(counter) severity note;
 	                blocking_put(fifo, transaction);
@@ -173,6 +181,9 @@ package body agent0_pkg is
         counter := 0;
 
         for i in 0 to NB_SAMPLES-1 loop
+			-- Toujours en vie
+			beat;
+
             --report " --------------------------Driver waiting for transaction number " & integer'image(counter) severity note;
             blocking_get(fifo, transaction);
             --report " --------------------------Driver received transaction number " & integer'image(counter) severity note;
@@ -184,7 +195,6 @@ package body agent0_pkg is
             	wait until rising_edge(clk);
             	port_input.sample_valid <= '0';
 			end if;
-			wait for transaction.time_next;
 			counter := counter + 1;
 
         end loop;
@@ -206,26 +216,21 @@ package body agent0_pkg is
     ) is
         variable transaction : input_transaction_t;
         variable counter : integer;
-        variable ok : boolean;
     begin
 
         counter := 0;
 
 		while (not no_objection) loop
-            ok := false;
-            while (not ok) loop
-                wait until rising_edge(clk);
-                -- TODO : Retrieve data and create a transaction
-                if (port_input.sample_valid = '1') then -- AND (port_output.ready = '1') then
-					transaction.sample := port_input.sample;
-					transaction.time_next := SAMPLING;
-					--report " Monitor0 send transaction number " & integer'image(counter) severity note;
-                    blocking_put(fifo, transaction);
-                    counter := counter + 1;
-                    ok := true;
+            wait until rising_edge(clk);
+            -- TODO : Retrieve data and create a transaction
+            if (port_input.sample_valid = '1') AND (port_output.ready = '1') AND (rst = '0' ) then
+				transaction.sample := port_input.sample;
+				transaction.time_next := SAMPLING;
+				--report " Monitor0 send transaction number " & integer'image(counter) severity note;
+                blocking_put(fifo, transaction);
+                counter := counter + 1;
 
-                end if;
-            end loop;
+            end if;
 		end loop;
 
         wait;

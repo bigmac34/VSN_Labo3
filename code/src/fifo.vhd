@@ -3,7 +3,7 @@
 -- Institut REDS, Reconfigurable & Embedded Digital Systems
 --
 -- File         : fifo.vhd
--- Description  : 
+-- Description  :
 --
 -- Author       : Mike Meury
 -- Date         : 19.03.2018
@@ -154,7 +154,7 @@ begin
     ------------------------
     -- combinatorial part --
     ------------------------
-    -- Counters 
+    -- Counters
     count_o <= std_logic_vector(counter_s);
 
     -- Flags

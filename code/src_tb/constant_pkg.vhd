@@ -5,44 +5,40 @@
 -- Cours VSN
 --------------------------------------------------------------------------------
 --
--- File		: transactions_pkg.vhd
+-- File		: constant_pkg.vhd
 -- Authors	: Jérémie Macchi
 --			  Vivien Kaltenrieder
 -- Date     : 28.03.2018
 --
 --------------------------------------------------------------------------------
--- Description : Définition des transactions d'entrée/sortie
+-- Description : Constants pour le projet
 --
 --------------------------------------------------------------------------------
 -- Modifications :
--- Ver   Date        	Person     		Comments
--- 1.0	 28.03.2018		Jérémie Macchi	Mise en place
+-- Ver   Date        	Person     			Comments
+-- 1.0	 13.04.2018		Vivien Kaltenrieder	Mise en place
+-- 1.1	 14.04.2018		Jérémie Macchi		Finalisation du projet
 --------------------------------------------------------------------------------
 ----------------
 -- Librairies --
 ----------------
 library ieee;
 use ieee.std_logic_1164.all;
-use work.constant_pkg.all;
 
 ---------------
 --  Package  --
 ---------------
-package transactions_pkg is
+package constant_pkg is
 
-    --constant SAMPLE_SIZE : integer := 16;
-    --constant TIME_TO_NEXT: time := 50 ns;
-    --constant WINDOW_SIZE : integer := 150;
+    constant SAMPLE_SIZE 	: integer := 16;
+    constant TIME_TO_NEXT	: time 	  := 50 ns;
+    constant WINDOW_SIZE 	: integer := 150;
+    constant NB_SAMPLES 	: integer := 1000;	--10000  si on veut tout les echantillons de input_value.txt
+	constant N_AVERAGE      : integer := 128;
+	constant POSITION		: integer := 50;
+	constant BUFFER_SIZE	: integer := (WINDOW_SIZE + POSITION - 1);
+	constant FICHIER_LOG	: string := "labo3_log";
 
-    type input_transaction_t is record
-      sample    : std_logic_vector(SAMPLE_SIZE-1 downto 0);
-      time_next : time;
-    end record;
-
-    type window is array (WINDOW_SIZE-1 downto 0) of std_logic_vector(SAMPLE_SIZE-1 downto 0);
-
-    type output_transaction_t is record
-      samples_window : window;
-    end record;
+	constant CLK_PERIOD 	: time := 10 ns;
 
 end package;

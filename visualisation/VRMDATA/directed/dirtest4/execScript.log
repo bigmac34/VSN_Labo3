@@ -8,17 +8,17 @@
 # ln -s /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/tlmvm
 # vcom -2008 /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/src/spike_detection_pkg.vhd
 # QuestaSim-64 vcom 10.5c_2 Compiler 2016.10 Oct 17 2016
-# Start time: 10:07:43 on Apr 08,2018
+# Start time: 15:10:27 on Apr 14,2018
 # vcom -2008 /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/src/spike_detection_pkg.vhd 
 # ** Error: (vcom-7) Failed to open design unit file "/mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/src/spike_detection_pkg.vhd" in read mode.
 # No such file or directory. (errno = ENOENT)
-# End time: 10:07:44 on Apr 08,2018, Elapsed time: 0:00:01
+# End time: 15:10:27 on Apr 14,2018, Elapsed time: 0:00:00
 # Errors: 1, Warnings: 0
 # ** Error: /opt/mentor/questasim/questasim/linux_x86_64/vcom failed.
 # Executing ONERROR command at macro ./execScript.do line 5
 # vcom -2008 /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/src/log_pkg.vhd
 # QuestaSim-64 vcom 10.5c_2 Compiler 2016.10 Oct 17 2016
-# Start time: 10:07:44 on Apr 08,2018
+# Start time: 15:10:27 on Apr 14,2018
 # vcom -2008 /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/src/log_pkg.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -28,11 +28,11 @@
 # -- Compiling package log_pkg
 # -- Compiling package body log_pkg
 # -- Loading package log_pkg
-# End time: 10:07:44 on Apr 08,2018, Elapsed time: 0:00:00
+# End time: 15:10:29 on Apr 14,2018, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 0
 # vcom -2008 /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/src/fifo.vhd
 # QuestaSim-64 vcom 10.5c_2 Compiler 2016.10 Oct 17 2016
-# Start time: 10:07:44 on Apr 08,2018
+# Start time: 15:10:29 on Apr 14,2018
 # vcom -2008 /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/src/fifo.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -43,11 +43,11 @@
 # -- Loading package log_pkg
 # -- Compiling entity fifo
 # -- Compiling architecture Behavioral of fifo
-# End time: 10:07:45 on Apr 08,2018, Elapsed time: 0:00:01
+# End time: 15:10:30 on Apr 14,2018, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vcom -2008 /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/src/spike_detection.vhd
 # QuestaSim-64 vcom 10.5c_2 Compiler 2016.10 Oct 17 2016
-# Start time: 10:07:45 on Apr 08,2018
+# Start time: 15:10:30 on Apr 14,2018
 # vcom -2008 /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/src/spike_detection.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -59,61 +59,61 @@
 # -- Loading package STD_LOGIC_UNSIGNED
 # -- Loading package log_pkg
 # -- Loading entity fifo
-# End time: 10:07:45 on Apr 08,2018, Elapsed time: 0:00:00
+# End time: 15:10:31 on Apr 14,2018, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vcom -2008 /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/src_tb/transactions_pkg.vhd
 # QuestaSim-64 vcom 10.5c_2 Compiler 2016.10 Oct 17 2016
-# Start time: 10:07:45 on Apr 08,2018
+# Start time: 15:10:31 on Apr 14,2018
 # vcom -2008 /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/src_tb/transactions_pkg.vhd 
 # ** Error: (vcom-7) Failed to open design unit file "/mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/src_tb/transactions_pkg.vhd" in read mode.
 # No such file or directory. (errno = ENOENT)
-# End time: 10:07:46 on Apr 08,2018, Elapsed time: 0:00:01
+# End time: 15:10:32 on Apr 14,2018, Elapsed time: 0:00:01
 # Errors: 1, Warnings: 0
 # ** Error: /opt/mentor/questasim/questasim/linux_x86_64/vcom failed.
 # Executing ONERROR command at macro ./execScript.do line 9
 # vcom -2008 /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/src_tb/transaction_fifo_pkg.vhd
 # QuestaSim-64 vcom 10.5c_2 Compiler 2016.10 Oct 17 2016
-# Start time: 10:07:46 on Apr 08,2018
+# Start time: 15:10:32 on Apr 14,2018
 # vcom -2008 /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/src_tb/transaction_fifo_pkg.vhd 
 # ** Error: (vcom-7) Failed to open design unit file "/mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/src_tb/transaction_fifo_pkg.vhd" in read mode.
 # No such file or directory. (errno = ENOENT)
-# End time: 10:07:46 on Apr 08,2018, Elapsed time: 0:00:00
+# End time: 15:10:32 on Apr 14,2018, Elapsed time: 0:00:00
 # Errors: 1, Warnings: 0
 # ** Error: /opt/mentor/questasim/questasim/linux_x86_64/vcom failed.
 # Executing ONERROR command at macro ./execScript.do line 10
 # vcom -2008 /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/src_tb/agent0_pkg.vhd
 # QuestaSim-64 vcom 10.5c_2 Compiler 2016.10 Oct 17 2016
-# Start time: 10:07:46 on Apr 08,2018
+# Start time: 15:10:33 on Apr 14,2018
 # vcom -2008 /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/src_tb/agent0_pkg.vhd 
 # ** Error: (vcom-7) Failed to open design unit file "/mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/src_tb/agent0_pkg.vhd" in read mode.
 # No such file or directory. (errno = ENOENT)
-# End time: 10:07:47 on Apr 08,2018, Elapsed time: 0:00:01
+# End time: 15:10:33 on Apr 14,2018, Elapsed time: 0:00:00
 # Errors: 1, Warnings: 0
 # ** Error: /opt/mentor/questasim/questasim/linux_x86_64/vcom failed.
 # Executing ONERROR command at macro ./execScript.do line 11
 # vcom -2008 /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/src_tb/agent1_pkg.vhd
 # QuestaSim-64 vcom 10.5c_2 Compiler 2016.10 Oct 17 2016
-# Start time: 10:07:47 on Apr 08,2018
+# Start time: 15:10:33 on Apr 14,2018
 # vcom -2008 /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/src_tb/agent1_pkg.vhd 
 # ** Error: (vcom-7) Failed to open design unit file "/mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/src_tb/agent1_pkg.vhd" in read mode.
 # No such file or directory. (errno = ENOENT)
-# End time: 10:07:47 on Apr 08,2018, Elapsed time: 0:00:00
+# End time: 15:10:34 on Apr 14,2018, Elapsed time: 0:00:01
 # Errors: 1, Warnings: 0
 # ** Error: /opt/mentor/questasim/questasim/linux_x86_64/vcom failed.
 # Executing ONERROR command at macro ./execScript.do line 12
 # vcom -2008 /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/src_tb/scoreboard_pkg.vhd
 # QuestaSim-64 vcom 10.5c_2 Compiler 2016.10 Oct 17 2016
-# Start time: 10:07:47 on Apr 08,2018
+# Start time: 15:10:34 on Apr 14,2018
 # vcom -2008 /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/src_tb/scoreboard_pkg.vhd 
 # ** Error: (vcom-7) Failed to open design unit file "/mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/src_tb/scoreboard_pkg.vhd" in read mode.
 # No such file or directory. (errno = ENOENT)
-# End time: 10:07:47 on Apr 08,2018, Elapsed time: 0:00:00
+# End time: 15:10:35 on Apr 14,2018, Elapsed time: 0:00:01
 # Errors: 1, Warnings: 0
 # ** Error: /opt/mentor/questasim/questasim/linux_x86_64/vcom failed.
 # Executing ONERROR command at macro ./execScript.do line 13
 # vcom -2008 /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/src_tb/spike_detection_tb.vhd
 # QuestaSim-64 vcom 10.5c_2 Compiler 2016.10 Oct 17 2016
-# Start time: 10:07:48 on Apr 08,2018
+# Start time: 15:10:35 on Apr 14,2018
 # vcom -2008 /mnt/hgfs/VSN/Labos/labo3_spikeonchip/visualisation/src_tb/spike_detection_tb.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -126,11 +126,11 @@
 # -- Compiling configuration spike_detection_tb_test_bench_cfg
 # -- Loading entity spike_detection_tb
 # -- Loading architecture test_bench of spike_detection_tb
-# End time: 10:07:48 on Apr 08,2018, Elapsed time: 0:00:00
+# End time: 15:10:36 on Apr 14,2018, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vsim -GERRNO=4 work.spike_detection_tb
 # vsim work.spike_detection_tb -GERRNO=4 
-# Start time: 10:07:49 on Apr 08,2018
+# Start time: 15:10:36 on Apr 14,2018
 # ** Note: (vsim-3812) Design is being optimized...
 # //  Questa Sim-64
 # //  Version 10.5c_2 linux_x86_64 Oct 17 2016
