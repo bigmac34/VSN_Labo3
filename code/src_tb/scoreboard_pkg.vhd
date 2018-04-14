@@ -17,6 +17,7 @@
 -- Modifications :
 -- Ver   Date        	Person     		Comments
 -- 1.0	 28.03.2018		Jérémie Macchi	Mise en place
+-- 1.1	 14.04.2018		Jérémie Macchi	Finalisation du projet
 --------------------------------------------------------------------------------
 ----------------
 -- Librairies --
@@ -34,25 +35,20 @@ use work.transactions_pkg.all;
 use work.spike_detection_pkg.all;
 use work.constant_pkg.all;
 
+library project_lib;
+context project_lib.project_ctx;
+
 ---------------
 --  Package  --
 ---------------
 package scoreboard_pkg is
-	
-	constant SAMPLE_SIZE 	: integer := 16;
-	constant TIME_TO_NEXT	: time := 50 ns;
-	constant WINDOW_SIZE 	: integer := 150;
-	constant NB_SAMPLES 	: integer := 10000;
-	constant N_AVERAGE      : integer := 128;
-	constant POSITION		: integer := 50;
-	constant BUFFER_SIZE	: integer := (WINDOW_SIZE + POSITION - 1);
 
 	-- Scoreboard
 	procedure scoreboard(variable fifo_input  : inout work.input_transaction_fifo_pkg.tlm_fifo_type;
 	variable fifo_output : inout work.output_transaction_fifo_pkg.tlm_fifo_type
 	);
 
-	type window_buffer is array (BUFFER_SIZE-1 downto 0) of std_logic_vector(16-1 downto 0);
+	type window_buffer is array (BUFFER_SIZE-1 downto 0) of std_logic_vector(SAMPLE_SIZE-1 downto 0);
 
 end package;
 
@@ -76,7 +72,7 @@ package body scoreboard_pkg is
 
 		variable expected     : std_logic_vector(7 downto 0);
 		variable ok			      : boolean;
-		variable flag		: boolean;
+		variable wait_spike		: boolean;
 
 		-- For the spike detection
 		variable buffer_window   : window_buffer;
@@ -98,12 +94,11 @@ package body scoreboard_pkg is
 		variable deviation           							: signed(SAMPLE_SIZE downto 0);  -- one extra bit
 		variable dev_squared         							: signed(deviation'length*2-1 downto 0);
 
-
 		begin
 
 			raise_objection;
 
-			flag := false;
+			wait_spike := false;
 
 			index_put := 0;
 			spike_expected := false;
@@ -112,12 +107,16 @@ package body scoreboard_pkg is
 			sum_squared    := (others => '0');
 			sample_squared  := (others => '0');
 
-			end_window_150 := 300; -- En dehors de 200 pour pas taper dans le buffer
+			end_window_150 := BUFFER_SIZE; -- En dehors du buffer
 
 			for i in 0 to NB_SAMPLES-1 loop
+
+				-- Toujours en vie
+				beat;
+
 				-- Recieve the transactions
 				blocking_get(fifo_input, trans_input);
-				-- ok à true s'il y avait un truc dans la fifo
+				-- ok à true s'il y avait quelque chose dans la fifo
 				blocking_timeout_get(fifo_output, trans_output, trans_input.time_next/10, ok);
 
 				--------------------------- detection ----------------------
@@ -151,35 +150,38 @@ package body scoreboard_pkg is
 				end if;
 
 
-				if (dev_squared > product_std_dev_factor_squared) and (i >= N_AVERAGE-1) and flag = false then
+				if (dev_squared > product_std_dev_factor_squared) and (i >= N_AVERAGE-1) and wait_spike = false then
 					end_window_150 := (index_put + WINDOW_SIZE - 1) mod BUFFER_SIZE;
-					flag := true;
+					wait_spike := true;
 				end if;
 
 				if index_put = end_window_150 then
 					spike_expected := true;
-					end_window_150 := 300;	-- Valeur en dehors de la fenetre
-					flag := false;
+					end_window_150 :=  BUFFER_SIZE; -- En dehors du buffer
+					wait_spike := false;
 				end if;
 
 				----------------- Check case ------------------------------------------
 				if ok and spike_expected then
-					report "On a recu un spike au bon moment              --------- In scoreboard" severity note;
+					logger.log_note("Spike received at the right time");
 
 					for j in index_put to index_put + WINDOW_SIZE - 1 loop
 						if buffer_window((j+BUFFER_SIZE+1) mod BUFFER_SIZE) /= trans_output.samples_window(j-index_put) then
 							same_window := false;
-							-- report "----------------------- Faux a: J=" & integer'image(j-index_put) & "    " & integer'image(to_integer(unsigned(buffer_window((j+BUFFER_SIZE+1) mod BUFFER_SIZE)))) & "/=" & integer'image(to_integer(unsigned(trans_output.samples_window(j-index_put))));
+							logger.log_warning("False samples at index : " & integer'image(j-index_put) & "    " & integer'image(to_integer(unsigned(buffer_window((j+BUFFER_SIZE+1) mod BUFFER_SIZE)))) & "/=" & integer'image(to_integer(unsigned(trans_output.samples_window(j-index_put)))));
 						end if;
 					end loop;
 					if not same_window then
-						report "La fenetre ne possede pas les bons echantillions --- In scoreboard" severity error;
+						logger.log_error("The window does not have the right samples");
+
 					end if;
 				elsif ok and not spike_expected then
-					report "On a recu un spike alors qu'il n'y en a pas   --------- In scoreboard ---------" severity error;
+					logger.log_error("Spike received when there is none");
+
 				elsif not ok and spike_expected then
-					report "On devait avoir un spike mais il n'y en a pas eu------- In scoreboard ---------" severity error;
-				else
+					logger.log_error("Spike expected but there is none");
+
+				--else
 					--do nothing : pas de spike attendu, pas de spike reçu
 				end if;
 

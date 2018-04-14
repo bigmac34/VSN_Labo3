@@ -18,6 +18,7 @@
 -- Modifications :
 -- Ver   Date        	Person     		Comments
 -- 1.0	 28.03.2018		Jérémie Macchi	Mise en place
+-- 1.1	 14.04.2018		Jérémie Macchi	Finalisation du projet
 --------------------------------------------------------------------------------
 ----------------
 -- Librairies --
@@ -32,6 +33,10 @@ context tlmvm.tlmvm_context;
 use work.output_transaction_fifo_pkg.all;
 use work.transactions_pkg.all;
 use work.spike_detection_pkg.all;
+use work.constant_pkg.all;
+
+library project_lib;
+context project_lib.project_ctx;
 
 ---------------
 --  Package  --
@@ -74,12 +79,18 @@ package body agent1_pkg is
             while (not ok) loop
                 wait until rising_edge(clk);
 
+				if(index >= WINDOW_SIZE) then
+					logger.log_failure("The DUV sent more than " & integer'image(WINDOW_SIZE) & " valid samples");
+				end if;
+
                 if (port_output.samples_spikes_valid = '1') then
                     transaction.samples_window(index) := port_output.samples_spikes;
 					index := index + 1;
                 end if;
                 if (port_output.spike_detected = '1') then
-
+					if(index < WINDOW_SIZE-1) then
+						logger.log_error("The DUV sent less than " & integer'image(WINDOW_SIZE) & " valid samples");
+					end if;
                     ok := true;
                 end if;
             end loop;
