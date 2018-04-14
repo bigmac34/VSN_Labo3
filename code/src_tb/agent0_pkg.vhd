@@ -1,7 +1,7 @@
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 -- HES-SO Master
 -- Haute Ecole Specialisee de Suisse Occidentale
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 -- Cours VSN
 --------------------------------------------------------------------------------
 --
@@ -43,6 +43,9 @@ use work.output_transaction_fifo_pkg.all;
 use work.transactions_pkg.all;
 use work.spike_detection_pkg.all;
 use work.constant_pkg.all;
+
+library project_lib;
+context project_lib.project_ctx;
 
 ---------------
 --  Package  --
@@ -88,9 +91,9 @@ package body agent0_pkg is
 
 		variable input_line_v : line;
 		variable value_v      : integer;
-		file input_file_f     : text;
-
 		variable val_mod	  : integer;
+
+		file input_file_f     : text;
 
 		constant INPUT_FILE_NAME : string  := "../src_tb/input_values.txt";
 
@@ -103,19 +106,19 @@ package body agent0_pkg is
         case testcase is
 			-- Test avec les données stockées dans un fichier --
             when 0 =>
-				-- open source file
+				-- Ouverture du fichier source
 				file_open(input_file_f, INPUT_FILE_NAME, read_mode);
 
 				transaction.time_next := SAMPLING;
 
 	            for i in 0 to NB_SAMPLES-1 loop
-
+					-- Toujours en vie
 					beat;
 
-					-- Read line in file
+					-- Lire la ligne dans le fichier
 					readline(input_file_f, input_line_v);
 
-					-- Extract value
+					-- Extraire la valeur
 					read(input_line_v, value_v);
 	            	transaction.sample := std_logic_vector(to_signed(value_v,16));
 
@@ -131,7 +134,7 @@ package body agent0_pkg is
 				transaction.time_next := SAMPLING;
 
 	            for i in 0 to NB_SAMPLES-1 loop
-
+					-- Toujours en vie
 					beat;
 
 					-- Valeur de base
@@ -153,7 +156,7 @@ package body agent0_pkg is
 	            end loop;
 
             when others =>
-                --report "Sequencer : Unsupported testcase" severity error;
+				logger.log_failure("Unsupported testcase");
 
         end case;
 
